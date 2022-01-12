@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47E54127-1914-42FC-91A2-A14EF214CAA8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SGC_Gerenciamento_de_Compras</RootNamespace>
+    <AssemblyName>SGC-Gerenciamento de Compras</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\Conexao.cs" />
+    <Compile Include="DAL\EtapaDAL.cs" />
+    <Compile Include="DAL\FabricanteDAL.cs" />
+    <Compile Include="DAL\PedidoDAL.cs" />
+    <Compile Include="DAL\ProdPedidoDAL.cs" />
+    <Compile Include="DAL\ProdutoDAL.cs" />
+    <Compile Include="DAL\UnidadeDAL.cs" />
+    <Compile Include="MODEL\Etapas.cs" />
+    <Compile Include="MODEL\Fabricante.cs" />
+    <Compile Include="MODEL\Pedido.cs" />
+    <Compile Include="MODEL\ProdPedido.cs" />
+    <Compile Include="MODEL\Produto.cs" />
+    <Compile Include="MODEL\Unidade.cs" />
+    <Compile Include="SGC_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SGC_DBDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Busca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Busca.Designer.cs">
+      <DependentUpon>Busca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Cadastros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Cadastros.Designer.cs">
+      <DependentUpon>Cadastros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\CadFabricante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CadFabricante.Designer.cs">
+      <DependentUpon>CadFabricante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\CadUnidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CadUnidade.Designer.cs">
+      <DependentUpon>CadUnidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\CadProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CadProduto.Designer.cs">
+      <DependentUpon>CadProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\AltEtapaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\AltEtapaPedido.Designer.cs">
+      <DependentUpon>AltEtapaPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\BaixarNFs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\BaixarNFs.Designer.cs">
+      <DependentUpon>BaixarNFs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\CadEtapas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CadEtapas.Designer.cs">
+      <DependentUpon>CadEtapas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\BuscaAlterarEtapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\BuscaAlterarEtapa.Designer.cs">
+      <DependentUpon>BuscaAlterarEtapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Pedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Pedido.Designer.cs">
+      <DependentUpon>Pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="VIEW\BaixarNFs.resx">
+      <DependentUpon>BaixarNFs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Busca.resx">
+      <DependentUpon>Busca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Cadastros.resx">
+      <DependentUpon>Cadastros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\CadEtapas.resx">
+      <DependentUpon>CadEtapas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\CadFabricante.resx">
+      <DependentUpon>CadFabricante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\CadUnidade.resx">
+      <DependentUpon>CadUnidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\CadProduto.resx">
+      <DependentUpon>CadProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\AltEtapaPedido.resx">
+      <DependentUpon>AltEtapaPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\BuscaAlterarEtapa.resx">
+      <DependentUpon>BuscaAlterarEtapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Pedido.resx">
+      <DependentUpon>Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SGC_DBDataSet.xsc">
+      <DependentUpon>SGC_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet.xss">
+      <DependentUpon>SGC_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet1.xsc">
+      <DependentUpon>SGC_DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet1.xss">
+      <DependentUpon>SGC_DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet10.xsc">
+      <DependentUpon>SGC_DBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet10.xss">
+      <DependentUpon>SGC_DBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet11.xsc">
+      <DependentUpon>SGC_DBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet11.xss">
+      <DependentUpon>SGC_DBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet12.xsc">
+      <DependentUpon>SGC_DBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet12.xss">
+      <DependentUpon>SGC_DBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet13.xsc">
+      <DependentUpon>SGC_DBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet13.xss">
+      <DependentUpon>SGC_DBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet14.xsc">
+      <DependentUpon>SGC_DBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet14.xss">
+      <DependentUpon>SGC_DBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet15.xsc">
+      <DependentUpon>SGC_DBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet15.xss">
+      <DependentUpon>SGC_DBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet2.xsc">
+      <DependentUpon>SGC_DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet2.xss">
+      <DependentUpon>SGC_DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet3.xsc">
+      <DependentUpon>SGC_DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet3.xss">
+      <DependentUpon>SGC_DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet4.xsc">
+      <DependentUpon>SGC_DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet4.xss">
+      <DependentUpon>SGC_DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet5.xsc">
+      <DependentUpon>SGC_DBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet5.xss">
+      <DependentUpon>SGC_DBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet6.xsc">
+      <DependentUpon>SGC_DBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet6.xss">
+      <DependentUpon>SGC_DBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet7.xsc">
+      <DependentUpon>SGC_DBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet7.xss">
+      <DependentUpon>SGC_DBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet8.xsc">
+      <DependentUpon>SGC_DBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet8.xss">
+      <DependentUpon>SGC_DBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet9.xsc">
+      <DependentUpon>SGC_DBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet9.xss">
+      <DependentUpon>SGC_DBDataSet9.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

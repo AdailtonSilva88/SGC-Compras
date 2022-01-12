@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SGC_DBDataSet2" targetNamespace="http://tempuri.org/SGC_DBDataSet2.xsd" xmlns:mstns="http://tempuri.org/SGC_DBDataSet2.xsd" xmlns="http://tempuri.org/SGC_DBDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SGC_DBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SGC_DBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGC_Gerenciamento_de_Compras.Properties.Settings.GlobalReference.Default.SGC_DBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TB_FABRICANTETableAdapter" GeneratorDataComponentClassName="TB_FABRICANTETableAdapter" Name="TB_FABRICANTE" UserDataComponentName="TB_FABRICANTETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SGC_DBConnectionString (Settings)" DbObjectName="SGC_DB.dbo.TB_FABRICANTE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NOME_FABRICANTE FROM dbo.TB_FABRICANTE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NOME_FABRICANTE" DataSetColumn="NOME_FABRICANTE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SGC_DBDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="SGC_DBDataSet2" msprop:Generator_DataSetName="SGC_DBDataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TB_FABRICANTE" msprop:Generator_RowEvHandlerName="TB_FABRICANTERowChangeEventHandler" msprop:Generator_RowDeletedName="TB_FABRICANTERowDeleted" msprop:Generator_RowDeletingName="TB_FABRICANTERowDeleting" msprop:Generator_RowEvArgName="TB_FABRICANTERowChangeEvent" msprop:Generator_TablePropName="TB_FABRICANTE" msprop:Generator_RowChangedName="TB_FABRICANTERowChanged" msprop:Generator_RowChangingName="TB_FABRICANTERowChanging" msprop:Generator_TableClassName="TB_FABRICANTEDataTable" msprop:Generator_RowClassName="TB_FABRICANTERow" msprop:Generator_TableVarName="tableTB_FABRICANTE" msprop:Generator_UserTableName="TB_FABRICANTE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOME_FABRICANTE" msprop:Generator_ColumnPropNameInRow="NOME_FABRICANTE" msprop:Generator_ColumnPropNameInTable="NOME_FABRICANTEColumn" msprop:Generator_ColumnVarNameInTable="columnNOME_FABRICANTE" msprop:Generator_UserColumnName="NOME_FABRICANTE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "47e54127-1914-42fc-91a2-a14ef214caa8": {
+      "ProjectGuid": "47e54127-1914-42fc-91a2-a14ef214caa8",
+      "DisplayName": "SGC-Gerenciamento de Compras",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
