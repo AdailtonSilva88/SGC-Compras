@@ -81,22 +81,29 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             return novoId;
         }
 
-        public String verificaCodigo(Int32 codProduto)
+        public bool verificaCodigo(Int32 codProduto)
         {
+            SqlDataReader dr;
+            bool resultado = true;
             cmd.Parameters.Clear();
-            cmd.CommandText = "INSERT INTO TB_PRODUTO VALUES(@codProduto,@descricao);";
-            cmd.Parameters.AddWithValue("@codProduto", codProduto);
-            cmd.Parameters.AddWithValue("@descricao", descricao);
+            cmd.CommandText = "SELECT * FROM TB_PRODUTO WHERE COD_PRODUTO = " + codProduto;           
             StringBuilder errorMessages = new StringBuilder();
 
 
             try
             {
                 cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (Convert.ToInt32(dr[0]) > 0)
+                {
+                    return false;
+                }
+                
                 con.desconectar();
 
-                this.mensagem = "Cadastrado com Sucesso";
+                
             }
             catch (SqlException ex)
             {
@@ -111,7 +118,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 Console.WriteLine(errorMessages.ToString());
             }
 
-            return mensagem;
+            return resultado;
 
         }
 

@@ -18,3 +18,24 @@ C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Co
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.AltEtapaPedido.resources
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Cadastros.resources
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.frmBuscaAlteraPedido.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.AssemblyReference.cache
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.SuggestedBindingRedirects.cache
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.BaixarNFs.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Busca.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Cadastros.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.CadEtapas.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.frmCadastroFabricante.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.CadUnidade.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.CadProduto.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.AltEtapaPedido.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.frmBuscaAlteraPedido.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Menu.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.frmPedidos.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Properties.Resources.resources
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.GenerateResource.cache
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.CoreCompileInputs.cache
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.exe
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.pdb
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.exe.config
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.exe
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.pdb
