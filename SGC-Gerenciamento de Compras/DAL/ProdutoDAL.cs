@@ -60,7 +60,8 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();
                 dr.Read();
-                if (Convert.ToInt32(dr[0].ToString()) > 0)
+               
+                if (dr.HasRows)
                 {
                     novoId = Convert.ToInt32(dr[0]);                    
                 }
@@ -95,8 +96,8 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();
                 dr.Read();
-
-                if (Convert.ToInt32(dr[0]) > 0)
+                
+                if (dr.HasRows)
                 {
                     return false;
                 }

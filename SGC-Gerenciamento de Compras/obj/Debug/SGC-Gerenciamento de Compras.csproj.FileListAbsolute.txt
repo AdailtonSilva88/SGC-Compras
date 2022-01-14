@@ -18,7 +18,6 @@ C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Co
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.AltEtapaPedido.resources
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Cadastros.resources
 C:\Users\adail\source\repos\SGC-Gerenciamento de Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.frmBuscaAlteraPedido.resources
-C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.AssemblyReference.cache
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.SuggestedBindingRedirects.cache
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.BaixarNFs.resources
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC_Gerenciamento_de_Compras.Busca.resources

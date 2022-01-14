@@ -9,7 +9,8 @@ namespace SGC_Gerenciamento_de_Compras.DAL
 {
     internal class FabricanteDAL
     {
-        public String mensagem,novoId;
+        Int32 novoId = 0;
+        public String mensagem;
         SqlCommand cmd = new SqlCommand();
         Conexao con = new Conexao();
 
@@ -37,9 +38,9 @@ namespace SGC_Gerenciamento_de_Compras.DAL
 
         }
 
-        public String ultimoCadastroId()
+        public Int32 ultimoCadastroId()
         {
-
+            
             SqlDataReader dr;
             cmd.CommandText = "SELECT MAX(COD_FABRICANTE) FROM TB_FABRICANTE";
 
@@ -48,7 +49,15 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();
                 dr.Read();
-                novoId = dr[0].ToString();
+                                              
+                if (dr.HasRows)
+                {
+                    novoId = Convert.ToInt32(dr[0]);
+                }
+                else
+                {
+                    novoId = 0;
+                }
                 con.desconectar();
 
                 return novoId;
@@ -60,6 +69,46 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             }
 
             return novoId;
+        }
+
+        public bool verificaCodigo(Int32 codFabricante)
+        {
+            SqlDataReader dr;
+            bool resultado = true;
+            cmd.Parameters.Clear();
+            cmd.CommandText = "SELECT * FROM TB_FABRICANTE WHERE COD_FABRICANTE = " + codFabricante;
+            StringBuilder errorMessages = new StringBuilder();
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                              
+                if (dr.HasRows)
+                {
+                    return false;
+                }
+
+                con.desconectar();
+
+
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                Console.WriteLine(errorMessages.ToString());
+            }
+
+            return resultado;
+
         }
 
     }
