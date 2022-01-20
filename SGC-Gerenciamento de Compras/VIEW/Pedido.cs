@@ -39,7 +39,6 @@ namespace SGC_Gerenciamento_de_Compras
             this.tB_FABRICANTETableAdapter.Fill(this.sGC_DBDataSet2.TB_FABRICANTE);
 
         }
-             
 
         private void btnAddFabricante_Click(object sender, EventArgs e)
         {
@@ -64,29 +63,29 @@ namespace SGC_Gerenciamento_de_Compras
             if (verificaCamposVazios())
             {
                 String mensagem = "Preencha todos os campos para adicionar produtos...";
-                MessageBox.Show(mensagem,"Alerta",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-            else 
+            else
             {
                 double preco;
-                
-                preco = Convert.ToDouble(txtPreco.Text);             
-             
-                calculo  = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtPreco.Text);
+
+                preco = Convert.ToDouble(txtPreco.Text);
+
+                calculo = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtPreco.Text);
 
                 total = total + calculo;
-                
+
                 dgvProdutosPedido.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, preco, calculo);
-               
+
                 lblTotalPedido.Text = total.ToString("C");
-                
+
                 limparProdutos();
-                               
+
             }
         }
 
-        private void limparProdutos() 
+        private void limparProdutos()
         {
             txtCodProduto.Text = "";
             txtQtd.Text = "";
@@ -94,7 +93,7 @@ namespace SGC_Gerenciamento_de_Compras
             lblNomeProduto.Text = "";
         }
 
-        private void limparDadosPedido() 
+        private void limparDadosPedido()
         {
             txtNomeComprador.Text = "";
             txtNomeVendedor.Text = "";
@@ -106,18 +105,35 @@ namespace SGC_Gerenciamento_de_Compras
             dgvProdutosPedido.Rows.Clear();
         }
 
-        private bool verificaCamposVazios() 
+        private bool verificaCamposVazios()
         {
-            if(string.IsNullOrEmpty(txtNomeComprador.Text) | string.IsNullOrEmpty(txtNomeVendedor.Text)|
-                    string.IsNullOrEmpty(txtParcela.Text)||string.IsNullOrEmpty(txtPedidoComprador.Text)|
+            if (string.IsNullOrEmpty(txtNomeComprador.Text) | string.IsNullOrEmpty(txtNomeVendedor.Text) |
+                    string.IsNullOrEmpty(txtParcela.Text) || string.IsNullOrEmpty(txtPedidoComprador.Text) |
                     string.IsNullOrEmpty(txtPedidoFabricante.Text) | string.IsNullOrEmpty(txtPrazo.Text))
-                    {
+            {
                 return true;
-                    }
+            }
             return false;
         }
 
-       
+        private bool verificaFabricanteVazios()
+        {
+            if (string.IsNullOrEmpty(txtNomeVendedor.Text) || string.IsNullOrEmpty(txtParcela.Text)
+                || string.IsNullOrEmpty(txtPedidoFabricante.Text) || string.IsNullOrEmpty(txtPrazo.Text))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool verificaCompradorVazio()
+        {
+            if (string.IsNullOrEmpty(txtPedidoComprador.Text) || string.IsNullOrEmpty(txtNomeComprador.Text))
+            {
+                return true;
+            }
+            return false;
+        }
 
         private void txtCodProduto_Leave(object sender, EventArgs e)
         {
@@ -136,20 +152,20 @@ namespace SGC_Gerenciamento_de_Compras
         {
             PedidoDAL pedidoDAL = new PedidoDAL();
 
-            String mensagem = pedidoDAL.cadastrarPedido(DadosPedido(),ListaProdutos());
+            String mensagem = pedidoDAL.cadastrarPedido(DadosPedido(), ListaProdutos());
 
             limparProdutos();
             limparDadosPedido();
-             //"Pedido Cadastrado com Sucesso !!!";
+            //"Pedido Cadastrado com Sucesso !!!";
             MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
         }
 
-        private Pedido DadosPedido() 
+        private Pedido DadosPedido()
         {
             Pedido pedido = new Pedido();
-            
+
 
             pedido.IdFabricante = (int)cbxFabricante.SelectedValue;
             pedido.IdEtapa = (int)cbxEtapa.SelectedValue;
@@ -167,25 +183,22 @@ namespace SGC_Gerenciamento_de_Compras
             return pedido;
 
         }
-        private List<ProdPedido> ListaProdutos() 
+        private List<ProdPedido> ListaProdutos()
         {
 
-            for (int i=0; i<dgvProdutosPedido.Rows.Count;i++)
+            for (int i = 0; i < dgvProdutosPedido.Rows.Count; i++)
             {
                 prodPedidos.Add(new ProdPedido(Convert.ToInt32(dgvProdutosPedido.Rows[i].Cells[0].Value),
                 Convert.ToDouble(dgvProdutosPedido.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdutosPedido.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdutosPedido.Rows[i].Cells[3].Value)));
-                
+
             }
             return prodPedidos;
 
         }
 
-        private void lblParcela_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void dgvProdutosPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -207,11 +220,32 @@ namespace SGC_Gerenciamento_de_Compras
             dgvProdutosPedido.Rows.RemoveAt(dgvProdutosPedido.CurrentRow.Index);
         }
 
-        private void dgvProdutosPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+
+        private void txtParcela_TextChanged(object sender, EventArgs e)
+        {
+            if (verificaFabricanteVazios())
+            {
+                //nada
+            }
+            else
+            {
+                gpComprador.Enabled = true;
+            }
+        }
+
+        private void txtNomeComprador_TextChanged(object sender, EventArgs e)
+        {
+            if (verificaCompradorVazio())
+            {
+                //nada
+            }
+            else
+            {
+                gpProdutos.Enabled = true;
+            }
         }
     }
 
-    
+
 }

@@ -23,23 +23,34 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            EtapaDAL ed = new EtapaDAL();
+            String etapa;
+            etapa = txtNomeEtapa.Text;
 
-            if (String.IsNullOrEmpty(txtNomeEtapa.Text))
+            if (!ed.verificaEtapa(etapa))
             {
-                String msgBox = "Preencha o nome da Etapa";
+                String msgBox = "Etapa já Existe";
                 MessageBox.Show(msgBox, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                nomeEtapa = txtNomeEtapa.Text;
+                if (String.IsNullOrEmpty(txtNomeEtapa.Text))
+                {
+                    String msgBox = "Preencha o nome da Etapa";
+                    MessageBox.Show(msgBox, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    nomeEtapa = txtNomeEtapa.Text;
 
-                EtapaDAL produtoDal = new EtapaDAL();
+                    EtapaDAL produtoDal = new EtapaDAL();
 
-                mensagem = produtoDal.cadastrar(nomeEtapa);
+                    mensagem = produtoDal.cadastrar(nomeEtapa);
 
-                MessageBox.Show(mensagem);
-                carregarDados();
-                limparDados();
+                    MessageBox.Show(mensagem);
+                    carregarDados();
+                    limparDados();
+                }
             }
 
         }

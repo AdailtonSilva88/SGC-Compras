@@ -26,23 +26,36 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNomeUnidade.Text) || String.IsNullOrEmpty(txtNumUnidade.Text))
+            UnidadeDAL ud = new UnidadeDAL();
+            Int32 codigo = 0;
+            codigo = Convert.ToInt32(txtNumUnidade.Text);
+
+            if (!ud.verificaCodigo(codigo))
             {
-                String msgBox = "Preencha todos os campos";
+                String msgBox = "Codigo já Existe";
                 MessageBox.Show(msgBox, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                codUnidade = Convert.ToInt32(txtNumUnidade.Text);
-                nomeUnidade = txtNomeUnidade.Text;
 
-                UnidadeDAL unidadeDal = new UnidadeDAL();
+                if (String.IsNullOrEmpty(txtNomeUnidade.Text) || String.IsNullOrEmpty(txtNumUnidade.Text))
+                {
+                    String msgBox = "Preencha todos os campos";
+                    MessageBox.Show(msgBox, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    codUnidade = Convert.ToInt32(txtNumUnidade.Text);
+                    nomeUnidade = txtNomeUnidade.Text;
 
-                mensagem = unidadeDal.cadastrar(codUnidade, nomeUnidade);
+                    UnidadeDAL unidadeDal = new UnidadeDAL();
 
-                MessageBox.Show(mensagem);
-                carregarDados();
-                limparDados();
+                    mensagem = unidadeDal.cadastrar(codUnidade, nomeUnidade);
+
+                    MessageBox.Show(mensagem);
+                    carregarDados();
+                    limparDados();
+                }
             }
             
         }

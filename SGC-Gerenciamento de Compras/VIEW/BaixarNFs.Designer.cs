@@ -104,6 +104,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BaixarNFs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baixar NFs";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscaNF)).EndInit();
             this.ResumeLayout(false);

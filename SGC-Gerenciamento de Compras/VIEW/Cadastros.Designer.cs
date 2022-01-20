@@ -96,6 +96,7 @@
             this.Controls.Add(this.btnCadFabricantes);
             this.Controls.Add(this.btnCadProdutos);
             this.Name = "Cadastros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.Cadastros_Load);
             this.ResumeLayout(false);

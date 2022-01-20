@@ -62,7 +62,7 @@
             this.gpFabricante = new System.Windows.Forms.GroupBox();
             this.txtParcela = new System.Windows.Forms.MaskedTextBox();
             this.txtPrazo = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpComprador = new System.Windows.Forms.GroupBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.btnAddCompraUnidade = new System.Windows.Forms.Button();
             this.lblNomeComprador = new System.Windows.Forms.Label();
@@ -70,18 +70,15 @@
             this.lblProdutosPedido = new System.Windows.Forms.Label();
             this.lblTotalPedido = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.gpProdutos = new System.Windows.Forms.GroupBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.lblPreco = new System.Windows.Forms.Label();
-            this.txtQtd = new System.Windows.Forms.TextBox();
             this.btnCadProduto = new System.Windows.Forms.Button();
             this.btnExcluirProduto = new System.Windows.Forms.Button();
             this.btnAddProduto = new System.Windows.Forms.Button();
             this.lblQtd = new System.Windows.Forms.Label();
             this.lblNomeProduto = new System.Windows.Forms.Label();
             this.lblCodProduto = new System.Windows.Forms.Label();
-            this.txtCodProduto = new System.Windows.Forms.TextBox();
             this.lblLançamentoPedidos = new System.Windows.Forms.Label();
             this.sGC_DBDataSet = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet();
             this.sGCDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -99,14 +96,17 @@
             this.tB_UNIDADETableAdapter1 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet9TableAdapters.TB_UNIDADETableAdapter();
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet10TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.lblIdPedido = new System.Windows.Forms.Label();
+            this.txtCodProd = new System.Windows.Forms.TextBox();
+            this.txtQtd = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBUNIDADEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet4)).BeginInit();
             this.gpFabricante.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gpComprador.SuspendLayout();
+            this.gpProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGCDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet2)).BeginInit();
@@ -125,6 +125,7 @@
             this.btnAddFabricante.Name = "btnAddFabricante";
             this.btnAddFabricante.Size = new System.Drawing.Size(29, 21);
             this.btnAddFabricante.TabIndex = 0;
+            this.btnAddFabricante.TabStop = false;
             this.btnAddFabricante.Text = "+";
             this.btnAddFabricante.UseVisualStyleBackColor = true;
             this.btnAddFabricante.Click += new System.EventHandler(this.btnAddFabricante_Click);
@@ -156,7 +157,7 @@
             this.dgvProdutosPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutosPedido.Size = new System.Drawing.Size(624, 191);
             this.dgvProdutosPedido.TabIndex = 0;
-            this.dgvProdutosPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutosPedido_CellContentClick);
+            this.dgvProdutosPedido.TabStop = false;
             this.dgvProdutosPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutosPedido_CellDoubleClick);
             // 
             // CodProduto
@@ -203,7 +204,7 @@
             this.txtNomeVendedor.Location = new System.Drawing.Point(468, 45);
             this.txtNomeVendedor.Name = "txtNomeVendedor";
             this.txtNomeVendedor.Size = new System.Drawing.Size(114, 20);
-            this.txtNomeVendedor.TabIndex = 4;
+            this.txtNomeVendedor.TabIndex = 3;
             // 
             // lblPedidoFabricante
             // 
@@ -258,7 +259,6 @@
             this.lblParcela.Size = new System.Drawing.Size(43, 13);
             this.lblParcela.TabIndex = 0;
             this.lblParcela.Text = "Parcela";
-            this.lblParcela.Click += new System.EventHandler(this.lblParcela_Click);
             // 
             // lblPedidoComprador
             // 
@@ -274,14 +274,15 @@
             this.txtPedidoFabricante.Location = new System.Drawing.Point(283, 45);
             this.txtPedidoFabricante.Name = "txtPedidoFabricante";
             this.txtPedidoFabricante.Size = new System.Drawing.Size(124, 20);
-            this.txtPedidoFabricante.TabIndex = 3;
+            this.txtPedidoFabricante.TabIndex = 2;
             // 
             // txtNomeComprador
             // 
             this.txtNomeComprador.Location = new System.Drawing.Point(468, 53);
             this.txtNomeComprador.Name = "txtNomeComprador";
             this.txtNomeComprador.Size = new System.Drawing.Size(129, 20);
-            this.txtNomeComprador.TabIndex = 13;
+            this.txtNomeComprador.TabIndex = 10;
+            this.txtNomeComprador.TextChanged += new System.EventHandler(this.txtNomeComprador_TextChanged);
             // 
             // txtObs
             // 
@@ -289,14 +290,14 @@
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(501, 26);
-            this.txtObs.TabIndex = 14;
+            this.txtObs.TabIndex = 11;
             // 
             // txtPedidoComprador
             // 
             this.txtPedidoComprador.Location = new System.Drawing.Point(20, 53);
             this.txtPedidoComprador.Name = "txtPedidoComprador";
             this.txtPedidoComprador.Size = new System.Drawing.Size(153, 20);
-            this.txtPedidoComprador.TabIndex = 11;
+            this.txtPedidoComprador.TabIndex = 8;
             // 
             // cbxFabricante
             // 
@@ -307,7 +308,7 @@
             this.cbxFabricante.Location = new System.Drawing.Point(20, 45);
             this.cbxFabricante.Name = "cbxFabricante";
             this.cbxFabricante.Size = new System.Drawing.Size(164, 21);
-            this.cbxFabricante.TabIndex = 2;
+            this.cbxFabricante.TabIndex = 1;
             this.cbxFabricante.ValueMember = "ID_FABRICANTE";
             // 
             // tBFABRICANTEBindingSource1
@@ -329,7 +330,7 @@
             this.cbxCompraUnidade.Location = new System.Drawing.Point(190, 52);
             this.cbxCompraUnidade.Name = "cbxCompraUnidade";
             this.cbxCompraUnidade.Size = new System.Drawing.Size(217, 21);
-            this.cbxCompraUnidade.TabIndex = 12;
+            this.cbxCompraUnidade.TabIndex = 9;
             this.cbxCompraUnidade.ValueMember = "ID_UNIDADE";
             // 
             // tBUNIDADEBindingSource
@@ -348,7 +349,7 @@
             this.dtDataPedido.Location = new System.Drawing.Point(20, 103);
             this.dtDataPedido.Name = "dtDataPedido";
             this.dtDataPedido.Size = new System.Drawing.Size(106, 20);
-            this.dtDataPedido.TabIndex = 5;
+            this.dtDataPedido.TabIndex = 4;
             // 
             // dtPrevisaoFaturamento
             // 
@@ -356,7 +357,7 @@
             this.dtPrevisaoFaturamento.Location = new System.Drawing.Point(154, 103);
             this.dtPrevisaoFaturamento.Name = "dtPrevisaoFaturamento";
             this.dtPrevisaoFaturamento.Size = new System.Drawing.Size(106, 20);
-            this.dtPrevisaoFaturamento.TabIndex = 6;
+            this.dtPrevisaoFaturamento.TabIndex = 5;
             // 
             // gpFabricante
             // 
@@ -388,32 +389,34 @@
             this.txtParcela.Mask = "99";
             this.txtParcela.Name = "txtParcela";
             this.txtParcela.Size = new System.Drawing.Size(100, 20);
-            this.txtParcela.TabIndex = 10;
+            this.txtParcela.TabIndex = 7;
+            this.txtParcela.TextChanged += new System.EventHandler(this.txtParcela_TextChanged);
             // 
             // txtPrazo
             // 
             this.txtPrazo.Location = new System.Drawing.Point(311, 102);
             this.txtPrazo.Name = "txtPrazo";
             this.txtPrazo.Size = new System.Drawing.Size(100, 20);
-            this.txtPrazo.TabIndex = 9;
+            this.txtPrazo.TabIndex = 6;
             // 
-            // groupBox1
+            // gpComprador
             // 
-            this.groupBox1.Controls.Add(this.lblObs);
-            this.groupBox1.Controls.Add(this.btnAddCompraUnidade);
-            this.groupBox1.Controls.Add(this.lblNomeComprador);
-            this.groupBox1.Controls.Add(this.lblCompraUnidade);
-            this.groupBox1.Controls.Add(this.lblPedidoComprador);
-            this.groupBox1.Controls.Add(this.txtPedidoComprador);
-            this.groupBox1.Controls.Add(this.cbxCompraUnidade);
-            this.groupBox1.Controls.Add(this.txtObs);
-            this.groupBox1.Controls.Add(this.txtNomeComprador);
-            this.groupBox1.Location = new System.Drawing.Point(12, 249);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 138);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados Comprador";
+            this.gpComprador.Controls.Add(this.lblObs);
+            this.gpComprador.Controls.Add(this.btnAddCompraUnidade);
+            this.gpComprador.Controls.Add(this.lblNomeComprador);
+            this.gpComprador.Controls.Add(this.lblCompraUnidade);
+            this.gpComprador.Controls.Add(this.lblPedidoComprador);
+            this.gpComprador.Controls.Add(this.txtPedidoComprador);
+            this.gpComprador.Controls.Add(this.cbxCompraUnidade);
+            this.gpComprador.Controls.Add(this.txtObs);
+            this.gpComprador.Controls.Add(this.txtNomeComprador);
+            this.gpComprador.Enabled = false;
+            this.gpComprador.Location = new System.Drawing.Point(12, 249);
+            this.gpComprador.Name = "gpComprador";
+            this.gpComprador.Size = new System.Drawing.Size(624, 138);
+            this.gpComprador.TabIndex = 0;
+            this.gpComprador.TabStop = false;
+            this.gpComprador.Text = "Dados Comprador";
             // 
             // lblObs
             // 
@@ -432,6 +435,7 @@
             this.btnAddCompraUnidade.Name = "btnAddCompraUnidade";
             this.btnAddCompraUnidade.Size = new System.Drawing.Size(31, 21);
             this.btnAddCompraUnidade.TabIndex = 0;
+            this.btnAddCompraUnidade.TabStop = false;
             this.btnAddCompraUnidade.Text = "+";
             this.btnAddCompraUnidade.UseVisualStyleBackColor = true;
             this.btnAddCompraUnidade.Click += new System.EventHandler(this.btnAddCompraUnidade_Click);
@@ -470,7 +474,7 @@
             this.lblTotalPedido.Location = new System.Drawing.Point(546, 735);
             this.lblTotalPedido.Name = "lblTotalPedido";
             this.lblTotalPedido.Size = new System.Drawing.Size(20, 24);
-            this.lblTotalPedido.TabIndex = 24;
+            this.lblTotalPedido.TabIndex = 0;
             this.lblTotalPedido.Text = "0";
             // 
             // label14
@@ -480,35 +484,29 @@
             this.label14.Location = new System.Drawing.Point(439, 735);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 20);
-            this.label14.TabIndex = 25;
+            this.label14.TabIndex = 0;
             this.label14.Text = "Total";
             // 
-            // groupBox2
+            // gpProdutos
             // 
-            this.groupBox2.Controls.Add(this.txtPreco);
-            this.groupBox2.Controls.Add(this.btnFinalizar);
-            this.groupBox2.Controls.Add(this.lblPreco);
-            this.groupBox2.Controls.Add(this.txtQtd);
-            this.groupBox2.Controls.Add(this.btnCadProduto);
-            this.groupBox2.Controls.Add(this.btnExcluirProduto);
-            this.groupBox2.Controls.Add(this.btnAddProduto);
-            this.groupBox2.Controls.Add(this.lblQtd);
-            this.groupBox2.Controls.Add(this.lblNomeProduto);
-            this.groupBox2.Controls.Add(this.lblCodProduto);
-            this.groupBox2.Controls.Add(this.txtCodProduto);
-            this.groupBox2.Location = new System.Drawing.Point(12, 393);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(624, 116);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Adicionar Produtos";
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(515, 41);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(82, 20);
-            this.txtPreco.TabIndex = 17;
+            this.gpProdutos.Controls.Add(this.txtPreco);
+            this.gpProdutos.Controls.Add(this.txtQtd);
+            this.gpProdutos.Controls.Add(this.txtCodProd);
+            this.gpProdutos.Controls.Add(this.btnFinalizar);
+            this.gpProdutos.Controls.Add(this.lblPreco);
+            this.gpProdutos.Controls.Add(this.btnCadProduto);
+            this.gpProdutos.Controls.Add(this.btnExcluirProduto);
+            this.gpProdutos.Controls.Add(this.btnAddProduto);
+            this.gpProdutos.Controls.Add(this.lblQtd);
+            this.gpProdutos.Controls.Add(this.lblNomeProduto);
+            this.gpProdutos.Controls.Add(this.lblCodProduto);
+            this.gpProdutos.Enabled = false;
+            this.gpProdutos.Location = new System.Drawing.Point(12, 393);
+            this.gpProdutos.Name = "gpProdutos";
+            this.gpProdutos.Size = new System.Drawing.Size(624, 116);
+            this.gpProdutos.TabIndex = 0;
+            this.gpProdutos.TabStop = false;
+            this.gpProdutos.Text = "Adicionar Produtos";
             // 
             // btnFinalizar
             // 
@@ -518,6 +516,7 @@
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(85, 37);
             this.btnFinalizar.TabIndex = 0;
+            this.btnFinalizar.TabStop = false;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -531,13 +530,6 @@
             this.lblPreco.TabIndex = 0;
             this.lblPreco.Text = "Preço";
             // 
-            // txtQtd
-            // 
-            this.txtQtd.Location = new System.Drawing.Point(431, 41);
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(77, 20);
-            this.txtQtd.TabIndex = 16;
-            // 
             // btnCadProduto
             // 
             this.btnCadProduto.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -546,6 +538,7 @@
             this.btnCadProduto.Name = "btnCadProduto";
             this.btnCadProduto.Size = new System.Drawing.Size(28, 20);
             this.btnCadProduto.TabIndex = 0;
+            this.btnCadProduto.TabStop = false;
             this.btnCadProduto.Text = "+";
             this.btnCadProduto.UseVisualStyleBackColor = true;
             this.btnCadProduto.Click += new System.EventHandler(this.btnCadProduto_Click);
@@ -558,6 +551,7 @@
             this.btnExcluirProduto.Name = "btnExcluirProduto";
             this.btnExcluirProduto.Size = new System.Drawing.Size(85, 37);
             this.btnExcluirProduto.TabIndex = 0;
+            this.btnExcluirProduto.TabStop = false;
             this.btnExcluirProduto.Text = "Excluir";
             this.btnExcluirProduto.UseVisualStyleBackColor = true;
             this.btnExcluirProduto.Click += new System.EventHandler(this.btnExcluirProduto_Click);
@@ -569,7 +563,8 @@
             this.btnAddProduto.Location = new System.Drawing.Point(332, 73);
             this.btnAddProduto.Name = "btnAddProduto";
             this.btnAddProduto.Size = new System.Drawing.Size(85, 37);
-            this.btnAddProduto.TabIndex = 18;
+            this.btnAddProduto.TabIndex = 15;
+            this.btnAddProduto.TabStop = false;
             this.btnAddProduto.Text = "Adicionar";
             this.btnAddProduto.UseVisualStyleBackColor = true;
             this.btnAddProduto.Click += new System.EventHandler(this.btnAddProduto_Click);
@@ -599,14 +594,6 @@
             this.lblCodProduto.Size = new System.Drawing.Size(40, 13);
             this.lblCodProduto.TabIndex = 0;
             this.lblCodProduto.Text = "Codigo";
-            // 
-            // txtCodProduto
-            // 
-            this.txtCodProduto.Location = new System.Drawing.Point(20, 41);
-            this.txtCodProduto.Name = "txtCodProduto";
-            this.txtCodProduto.Size = new System.Drawing.Size(91, 20);
-            this.txtCodProduto.TabIndex = 15;
-            this.txtCodProduto.Leave += new System.EventHandler(this.txtCodProduto_Leave);
             // 
             // lblLançamentoPedidos
             // 
@@ -670,6 +657,7 @@
             this.cbxEtapa.Name = "cbxEtapa";
             this.cbxEtapa.Size = new System.Drawing.Size(168, 21);
             this.cbxEtapa.TabIndex = 0;
+            this.cbxEtapa.TabStop = false;
             this.cbxEtapa.ValueMember = "ID_ETAPA_PEDIDO";
             // 
             // tBETAPAPEDIDOBindingSource
@@ -710,6 +698,27 @@
             this.lblIdPedido.Text = "ID";
             this.lblIdPedido.Visible = false;
             // 
+            // txtCodProd
+            // 
+            this.txtCodProd.Location = new System.Drawing.Point(11, 44);
+            this.txtCodProd.Name = "txtCodProd";
+            this.txtCodProd.Size = new System.Drawing.Size(100, 20);
+            this.txtCodProd.TabIndex = 16;
+            // 
+            // txtQtd
+            // 
+            this.txtQtd.Location = new System.Drawing.Point(405, 37);
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(100, 20);
+            this.txtQtd.TabIndex = 17;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(510, 37);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(100, 20);
+            this.txtPreco.TabIndex = 18;
+            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,14 +728,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxEtapa);
             this.Controls.Add(this.lblLançamentoPedidos);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gpProdutos);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblTotalPedido);
             this.Controls.Add(this.lblProdutosPedido);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpComprador);
             this.Controls.Add(this.gpFabricante);
             this.Controls.Add(this.dgvProdutosPedido);
             this.Name = "frmPedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedido";
             this.Load += new System.EventHandler(this.frmPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosPedido)).EndInit();
@@ -736,10 +746,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet4)).EndInit();
             this.gpFabricante.ResumeLayout(false);
             this.gpFabricante.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gpComprador.ResumeLayout(false);
+            this.gpComprador.PerformLayout();
+            this.gpProdutos.ResumeLayout(false);
+            this.gpProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGCDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet2)).EndInit();
@@ -775,7 +785,7 @@
         private System.Windows.Forms.DateTimePicker dtDataPedido;
         private System.Windows.Forms.DateTimePicker dtPrevisaoFaturamento;
         private System.Windows.Forms.GroupBox gpFabricante;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpComprador;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.Button btnAddCompraUnidade;
         private System.Windows.Forms.Label lblNomeComprador;
@@ -783,7 +793,7 @@
         private System.Windows.Forms.Label lblProdutosPedido;
         private System.Windows.Forms.Label lblTotalPedido;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gpProdutos;
         private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Button btnExcluirProduto;
@@ -792,7 +802,6 @@
         private System.Windows.Forms.Label lblQtd;
         private System.Windows.Forms.Label lblNomeProduto;
         private System.Windows.Forms.Label lblCodProduto;
-        private System.Windows.Forms.TextBox txtCodProduto;
         private System.Windows.Forms.Label lblLançamentoPedidos;
         private System.Windows.Forms.BindingSource sGCDBDataSetBindingSource;
         private SGC_DBDataSet sGC_DBDataSet;
@@ -816,13 +825,14 @@
         private System.Windows.Forms.Label lblIdPedido;
         private System.Windows.Forms.MaskedTextBox txtParcela;
         private System.Windows.Forms.MaskedTextBox txtPrazo;
-        private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtdProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalProdutos;
+        private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtQtd;
+        private System.Windows.Forms.TextBox txtCodProd;
     }
 }
 

@@ -70,6 +70,7 @@
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.btnBuscar);
             this.Name = "frmBuscaAlteraPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busca para Alterar Pedido";
             this.ResumeLayout(false);
             this.PerformLayout();

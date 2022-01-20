@@ -38,3 +38,4 @@ C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\S
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.exe.config
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.exe
 C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\bin\Debug\SGC-Gerenciamento de Compras.pdb
+C:\Users\adail\source\repos\SGC-Compras\SGC-Gerenciamento de Compras\obj\Debug\SGC-Gerenciamento de Compras.csproj.AssemblyReference.cache

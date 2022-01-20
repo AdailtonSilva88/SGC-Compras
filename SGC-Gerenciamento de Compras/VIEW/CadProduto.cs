@@ -18,7 +18,7 @@ namespace SGC_Gerenciamento_de_Compras
             InitializeComponent();
         }
 
-        private Int32 codProduto;
+        
         private String descricao;
         private String mensagem;
 

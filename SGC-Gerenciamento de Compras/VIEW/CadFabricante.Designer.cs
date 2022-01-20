@@ -160,6 +160,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmCadastroFabricante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Fabricante";
             this.Load += new System.EventHandler(this.frmCadastroFabricante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

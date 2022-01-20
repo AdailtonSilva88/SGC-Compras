@@ -68,7 +68,7 @@
             // 
             // btnCadastros
             // 
-            this.btnCadastros.Location = new System.Drawing.Point(10, 221);
+            this.btnCadastros.Location = new System.Drawing.Point(496, 92);
             this.btnCadastros.Name = "btnCadastros";
             this.btnCadastros.Size = new System.Drawing.Size(136, 104);
             this.btnCadastros.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // btnConsultaPedidos
             // 
-            this.btnConsultaPedidos.Location = new System.Drawing.Point(170, 221);
+            this.btnConsultaPedidos.Location = new System.Drawing.Point(656, 92);
             this.btnConsultaPedidos.Name = "btnConsultaPedidos";
             this.btnConsultaPedidos.Size = new System.Drawing.Size(136, 104);
             this.btnConsultaPedidos.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 389);
+            this.ClientSize = new System.Drawing.Size(808, 314);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultaPedidos);
             this.Controls.Add(this.btnCadastros);
@@ -108,6 +108,7 @@
             this.Controls.Add(this.btnEtapaPedido);
             this.Controls.Add(this.btnLancarPedido);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -61,7 +61,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 dr = cmd.ExecuteReader();
                 dr.Read();
                
-                if (dr.HasRows)
+                if (!dr.IsDBNull(0))
                 {
                     novoId = Convert.ToInt32(dr[0]);                    
                 }

@@ -81,6 +81,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtNF = new System.Windows.Forms.TextBox();
+            this.lblNF = new System.Windows.Forms.Label();
             this.btnAddEtapa = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxEtapa = new System.Windows.Forms.ComboBox();
@@ -93,8 +95,6 @@
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet11TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet12TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet13TableAdapters.TB_UNIDADETableAdapter();
-            this.lblNF = new System.Windows.Forms.Label();
-            this.txtNF = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBUNIDADEBindingSource)).BeginInit();
@@ -604,6 +604,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados da Nova Etapa";
             // 
+            // txtNF
+            // 
+            this.txtNF.Location = new System.Drawing.Point(85, 103);
+            this.txtNF.Name = "txtNF";
+            this.txtNF.Size = new System.Drawing.Size(128, 20);
+            this.txtNF.TabIndex = 19;
+            this.txtNF.Visible = false;
+            // 
+            // lblNF
+            // 
+            this.lblNF.AutoSize = true;
+            this.lblNF.Location = new System.Drawing.Point(22, 106);
+            this.lblNF.Name = "lblNF";
+            this.lblNF.Size = new System.Drawing.Size(57, 13);
+            this.lblNF.TabIndex = 18;
+            this.lblNF.Text = "N° da NFe";
+            this.lblNF.Visible = false;
+            // 
             // btnAddEtapa
             // 
             this.btnAddEtapa.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -708,24 +726,6 @@
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
             // 
-            // lblNF
-            // 
-            this.lblNF.AutoSize = true;
-            this.lblNF.Location = new System.Drawing.Point(22, 106);
-            this.lblNF.Name = "lblNF";
-            this.lblNF.Size = new System.Drawing.Size(57, 13);
-            this.lblNF.TabIndex = 18;
-            this.lblNF.Text = "N° da NFe";
-            this.lblNF.Visible = false;
-            // 
-            // txtNF
-            // 
-            this.txtNF.Location = new System.Drawing.Point(85, 103);
-            this.txtNF.Name = "txtNF";
-            this.txtNF.Size = new System.Drawing.Size(128, 20);
-            this.txtNF.TabIndex = 19;
-            this.txtNF.Visible = false;
-            // 
             // AltEtapaPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -737,6 +737,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Name = "AltEtapaPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar Etapa do Pedido";
             this.Load += new System.EventHandler(this.AltEtapaPedido_Load);
             this.groupBox2.ResumeLayout(false);
