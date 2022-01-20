@@ -45,6 +45,6 @@ namespace SGC_Gerenciamento_de_Compras
         {
             Busca busca = new Busca();
             busca.ShowDialog();
-        }
+        }       
     }
 }

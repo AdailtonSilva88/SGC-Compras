@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddFabricante = new System.Windows.Forms.Button();
             this.lblFabricante = new System.Windows.Forms.Label();
             this.dgvProdutosPedido = new System.Windows.Forms.DataGridView();
@@ -71,6 +71,9 @@
             this.lblTotalPedido = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gpProdutos = new System.Windows.Forms.GroupBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.txtQtd = new System.Windows.Forms.TextBox();
+            this.txtCodProduto = new System.Windows.Forms.TextBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.lblPreco = new System.Windows.Forms.Label();
             this.btnCadProduto = new System.Windows.Forms.Button();
@@ -96,9 +99,6 @@
             this.tB_UNIDADETableAdapter1 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet9TableAdapters.TB_UNIDADETableAdapter();
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet10TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.lblIdPedido = new System.Windows.Forms.Label();
-            this.txtCodProd = new System.Windows.Forms.TextBox();
-            this.txtQtd = new System.Windows.Forms.TextBox();
-            this.txtPreco = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet3)).BeginInit();
@@ -183,18 +183,18 @@
             // 
             // precoProduto
             // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.precoProduto.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.precoProduto.DefaultCellStyle = dataGridViewCellStyle13;
             this.precoProduto.HeaderText = "Preço";
             this.precoProduto.Name = "precoProduto";
             this.precoProduto.ReadOnly = true;
             // 
             // totalProdutos
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.totalProdutos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.totalProdutos.DefaultCellStyle = dataGridViewCellStyle14;
             this.totalProdutos.HeaderText = "Total";
             this.totalProdutos.Name = "totalProdutos";
             this.totalProdutos.ReadOnly = true;
@@ -491,7 +491,7 @@
             // 
             this.gpProdutos.Controls.Add(this.txtPreco);
             this.gpProdutos.Controls.Add(this.txtQtd);
-            this.gpProdutos.Controls.Add(this.txtCodProd);
+            this.gpProdutos.Controls.Add(this.txtCodProduto);
             this.gpProdutos.Controls.Add(this.btnFinalizar);
             this.gpProdutos.Controls.Add(this.lblPreco);
             this.gpProdutos.Controls.Add(this.btnCadProduto);
@@ -507,6 +507,28 @@
             this.gpProdutos.TabIndex = 0;
             this.gpProdutos.TabStop = false;
             this.gpProdutos.Text = "Adicionar Produtos";
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(514, 41);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(83, 20);
+            this.txtPreco.TabIndex = 18;
+            // 
+            // txtQtd
+            // 
+            this.txtQtd.Location = new System.Drawing.Point(431, 41);
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(56, 20);
+            this.txtQtd.TabIndex = 17;
+            // 
+            // txtCodProduto
+            // 
+            this.txtCodProduto.Location = new System.Drawing.Point(11, 41);
+            this.txtCodProduto.Name = "txtCodProduto";
+            this.txtCodProduto.Size = new System.Drawing.Size(100, 20);
+            this.txtCodProduto.TabIndex = 16;
+            this.txtCodProduto.Leave += new System.EventHandler(this.txtCodProduto_Leave_1);
             // 
             // btnFinalizar
             // 
@@ -563,8 +585,7 @@
             this.btnAddProduto.Location = new System.Drawing.Point(332, 73);
             this.btnAddProduto.Name = "btnAddProduto";
             this.btnAddProduto.Size = new System.Drawing.Size(85, 37);
-            this.btnAddProduto.TabIndex = 15;
-            this.btnAddProduto.TabStop = false;
+            this.btnAddProduto.TabIndex = 19;
             this.btnAddProduto.Text = "Adicionar";
             this.btnAddProduto.UseVisualStyleBackColor = true;
             this.btnAddProduto.Click += new System.EventHandler(this.btnAddProduto_Click);
@@ -698,27 +719,6 @@
             this.lblIdPedido.Text = "ID";
             this.lblIdPedido.Visible = false;
             // 
-            // txtCodProd
-            // 
-            this.txtCodProd.Location = new System.Drawing.Point(11, 44);
-            this.txtCodProd.Name = "txtCodProd";
-            this.txtCodProd.Size = new System.Drawing.Size(100, 20);
-            this.txtCodProd.TabIndex = 16;
-            // 
-            // txtQtd
-            // 
-            this.txtQtd.Location = new System.Drawing.Point(405, 37);
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(100, 20);
-            this.txtQtd.TabIndex = 17;
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(510, 37);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(100, 20);
-            this.txtPreco.TabIndex = 18;
-            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,7 +832,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalProdutos;
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtQtd;
-        private System.Windows.Forms.TextBox txtCodProd;
+        private System.Windows.Forms.TextBox txtCodProduto;
     }
 }
 

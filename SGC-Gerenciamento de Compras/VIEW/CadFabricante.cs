@@ -18,16 +18,10 @@ namespace SGC_Gerenciamento_de_Compras
             InitializeComponent();
         }
 
-        private Int32 codFabricante;
         private String nomeFabricante;
         private String mensagem;
 
         FabricanteDAL fabricanteDal = new FabricanteDAL();
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -42,7 +36,6 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else
             {
-
                 if (String.IsNullOrEmpty(txtNomeFabricante.Text) || String.IsNullOrEmpty(txtNumFabricante.Text))
                 {
                     String msgBox = "Preencha todos os campos";
@@ -66,7 +59,6 @@ namespace SGC_Gerenciamento_de_Compras
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet6.TB_FABRICANTE'. Você pode movê-la ou removê-la conforme necessário.
             carregarDados();
-
         }
 
         private void carregarDados() 

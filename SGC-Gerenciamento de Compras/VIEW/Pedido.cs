@@ -60,6 +60,7 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
+            gpComprador.Enabled = false;
             if (verificaCamposVazios())
             {
                 String mensagem = "Preencha todos os campos para adicionar produtos...";
@@ -135,17 +136,7 @@ namespace SGC_Gerenciamento_de_Compras
             return false;
         }
 
-        private void txtCodProduto_Leave(object sender, EventArgs e)
-        {
-            if (txtCodProduto.Text == "")
-            {
-            }
-            else
-            {
-                ProdPedidoDAL prodPedidoDAL = new ProdPedidoDAL();
-                lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
-            }
-        }
+        
 
         [Obsolete]
         private void btnFinalizar_Click(object sender, EventArgs e)
@@ -242,7 +233,20 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else
             {
+                gpFabricante.Enabled = false;
                 gpProdutos.Enabled = true;
+            }
+        }
+
+        private void txtCodProduto_Leave_1(object sender, EventArgs e)
+        {
+            if (txtCodProduto.Text == "")
+            {
+            }
+            else
+            {
+                ProdPedidoDAL prodPedidoDAL = new ProdPedidoDAL();
+                lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
             }
         }
     }

@@ -39,8 +39,7 @@ namespace SGC_Gerenciamento_de_Compras
         {
             CadEtapas cadEtapas = new CadEtapas();
             cadEtapas.ShowDialog();
-        }
-             
+        }             
 
         private void Cadastros_Load(object sender, EventArgs e)
         {

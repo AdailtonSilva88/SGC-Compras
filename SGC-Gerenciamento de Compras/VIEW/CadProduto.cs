@@ -17,7 +17,6 @@ namespace SGC_Gerenciamento_de_Compras
         {
             InitializeComponent();
         }
-
         
         private String descricao;
         private String mensagem;
@@ -37,7 +36,6 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else
             {
-
                 if (String.IsNullOrEmpty(txtDescricaoProduto.Text) || String.IsNullOrEmpty(txtCodProduto.Text))
                 {
                     String msgBox = "Preencha todos os campos";
@@ -47,22 +45,19 @@ namespace SGC_Gerenciamento_de_Compras
                 {
                     codProduto = Convert.ToInt32(txtCodProduto.Text);
                     descricao = txtDescricaoProduto.Text;
-
                     mensagem = produtoDal.cadastrarProd(codProduto, descricao);
+
                     limparDados();
                     MessageBox.Show(mensagem);
-
                     carregarDados();
                 }
             }
-
         }
 
         private void CadProduto_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet7.TB_PRODUTO'. Você pode movê-la ou removê-la conforme necessário.
             carregarDados();
-
         }
 
         private void carregarDados() 

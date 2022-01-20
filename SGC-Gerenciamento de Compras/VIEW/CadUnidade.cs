@@ -37,7 +37,6 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else
             {
-
                 if (String.IsNullOrEmpty(txtNomeUnidade.Text) || String.IsNullOrEmpty(txtNumUnidade.Text))
                 {
                     String msgBox = "Preencha todos os campos";
@@ -57,7 +56,6 @@ namespace SGC_Gerenciamento_de_Compras
                     limparDados();
                 }
             }
-            
         }
 
         private void CadUnidade_Load(object sender, EventArgs e)
@@ -68,18 +66,15 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void carregarDados()
         {
-           Int32 novoId = Convert.ToInt32(unidadeDAL.ultimoCadastroId())+1;
+            Int32 novoId = Convert.ToInt32(unidadeDAL.ultimoCadastroId()) + 1;
             txtNumUnidade.Text = novoId.ToString();
             this.tB_UNIDADETableAdapter.Fill(this.sGC_DBDataSet8.TB_UNIDADE);
         }
 
-        private void limparDados() 
+        private void limparDados()
         {
             txtNomeUnidade = null;
             txtNumUnidade = null;
-
         }
-
-
     }
 }
