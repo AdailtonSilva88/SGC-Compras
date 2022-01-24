@@ -246,7 +246,16 @@ namespace SGC_Gerenciamento_de_Compras
             else
             {
                 ProdPedidoDAL prodPedidoDAL = new ProdPedidoDAL();
-                lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
+                ProdutoDAL pDAL = new ProdutoDAL();
+                if (pDAL.verificaCodigo(Convert.ToInt32(txtCodProduto.Text))) 
+                {
+                    MessageBox.Show("Produto não cadastrado !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
+                }
+                
             }
         }
     }

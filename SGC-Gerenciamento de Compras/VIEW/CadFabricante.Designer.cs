@@ -56,14 +56,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro Fabricante";
             // 
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Nome Fabricante";
             // 
             // txtNomeFabricante
@@ -78,7 +77,7 @@
             this.txtNumFabricante.Location = new System.Drawing.Point(12, 67);
             this.txtNumFabricante.Name = "txtNumFabricante";
             this.txtNumFabricante.Size = new System.Drawing.Size(100, 20);
-            this.txtNumFabricante.TabIndex = 5;
+            this.txtNumFabricante.TabIndex = 1;
             // 
             // label3
             // 
@@ -86,7 +85,7 @@
             this.label3.Location = new System.Drawing.Point(9, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Nº Fabricante";
             // 
             // btnCadastrar
@@ -94,7 +93,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(247, 116);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 31);
-            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -115,7 +114,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(310, 255);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // cODFABRICANTEDataGridViewTextBoxColumn
             // 

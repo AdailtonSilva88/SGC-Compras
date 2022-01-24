@@ -51,7 +51,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(247, 119);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 31);
-            this.btnCadastrar.TabIndex = 12;
+            this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -61,7 +61,7 @@
             this.txtNumUnidade.Location = new System.Drawing.Point(20, 73);
             this.txtNumUnidade.Name = "txtNumUnidade";
             this.txtNumUnidade.Size = new System.Drawing.Size(100, 20);
-            this.txtNumUnidade.TabIndex = 11;
+            this.txtNumUnidade.TabIndex = 1;
             // 
             // label3
             // 
@@ -77,7 +77,7 @@
             this.txtNomeUnidade.Location = new System.Drawing.Point(20, 125);
             this.txtNomeUnidade.Name = "txtNomeUnidade";
             this.txtNomeUnidade.Size = new System.Drawing.Size(221, 20);
-            this.txtNomeUnidade.TabIndex = 9;
+            this.txtNomeUnidade.TabIndex = 2;
             // 
             // label2
             // 
@@ -114,7 +114,8 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(310, 263);
-            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // cODUNIDADEDataGridViewTextBoxColumn
             // 

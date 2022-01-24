@@ -28,6 +28,7 @@ namespace SGC_Gerenciamento_de_Compras
         {
             UnidadeDAL ud = new UnidadeDAL();
             Int32 codigo = 0;
+
             codigo = Convert.ToInt32(txtNumUnidade.Text);
 
             if (!ud.verificaCodigo(codigo))
@@ -47,13 +48,12 @@ namespace SGC_Gerenciamento_de_Compras
                     codUnidade = Convert.ToInt32(txtNumUnidade.Text);
                     nomeUnidade = txtNomeUnidade.Text;
 
-                    UnidadeDAL unidadeDal = new UnidadeDAL();
-
-                    mensagem = unidadeDal.cadastrar(codUnidade, nomeUnidade);
-
+                    mensagem = ud.cadastrar(codUnidade, nomeUnidade);
+                    
+                    limparDados();
                     MessageBox.Show(mensagem);
                     carregarDados();
-                    limparDados();
+                    
                 }
             }
         }
@@ -73,8 +73,8 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void limparDados()
         {
-            txtNomeUnidade = null;
-            txtNumUnidade = null;
+            txtNomeUnidade.Text = "";
+            txtNumUnidade.Text = "";
         }
     }
 }

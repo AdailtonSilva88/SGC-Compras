@@ -37,12 +37,13 @@ namespace SGC_Gerenciamento_de_Compras.DAL
 
         }
 
-        public String nomeProduto(Int32 codProduto) 
+        public String nomeProduto(Int32 codProduto)
         {
             String nomeProduto = "";
             SqlDataReader dr;
-            
-             cmd.CommandText = "SELECT DESCRICAO_PROD FROM TB_PRODUTO WHERE COD_PRODUTO =" + codProduto;
+
+            cmd.Parameters.Clear();
+            cmd.CommandText = "SELECT DESCRICAO_PROD FROM TB_PRODUTO WHERE COD_PRODUTO = " + codProduto;
 
             try
             {
@@ -52,18 +53,16 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 nomeProduto = dr[0].ToString();
                 con.desconectar();
 
-                this.mensagem = "Cadastrado com Sucesso";
             }
             catch (SqlException)
             {
                 this.mensagem = "Erro SQL";
             }
 
-
             return nomeProduto;
         }
 
-        
+
 
     }
 }

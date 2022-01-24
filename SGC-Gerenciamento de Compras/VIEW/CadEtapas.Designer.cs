@@ -49,7 +49,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(247, 98);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 31);
-            this.btnCadastrar.TabIndex = 18;
+            this.btnCadastrar.TabIndex = 2;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -59,7 +59,7 @@
             this.txtNomeEtapa.Location = new System.Drawing.Point(19, 104);
             this.txtNomeEtapa.Name = "txtNomeEtapa";
             this.txtNomeEtapa.Size = new System.Drawing.Size(222, 20);
-            this.txtNomeEtapa.TabIndex = 15;
+            this.txtNomeEtapa.TabIndex = 1;
             // 
             // label2
             // 
@@ -67,7 +67,7 @@
             this.label2.Location = new System.Drawing.Point(16, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 14;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Nome Etapa";
             // 
             // label1
@@ -77,7 +77,7 @@
             this.label1.Location = new System.Drawing.Point(16, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 16);
-            this.label1.TabIndex = 13;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro de Etapas";
             // 
             // dataGridView1
@@ -95,8 +95,9 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(303, 275);
-            this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.Size = new System.Drawing.Size(315, 275);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // iDETAPAPEDIDODataGridViewTextBoxColumn
             // 
@@ -132,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 431);
+            this.ClientSize = new System.Drawing.Size(339, 431);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txtNomeEtapa);
