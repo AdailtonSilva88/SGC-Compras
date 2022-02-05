@@ -49,7 +49,7 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(170, 20);
             this.txtBusca.TabIndex = 9;
-            this.txtBusca.Text = "2541651";
+            this.txtBusca.Text = "546";
             // 
             // label1
             // 

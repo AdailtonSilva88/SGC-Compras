@@ -103,61 +103,66 @@ namespace SGC_Gerenciamento_de_Compras
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();
                 dr.Read();
-                idPedido = dr[0].ToString();
-                cbxFabricante.SelectedValue = dr[1];
-                txtPedidoFabricante.Text = dr[2].ToString();
-                txtNomeVendedor.Text = dr[3].ToString();
-                dtDataPedido.Value = (DateTime)dr[4];
-                dtPrevisaoFaturamento.Value = (DateTime)dr[5];
-                txtPrazo.Text = dr[6].ToString();
-                txtParcela.Text = dr[7].ToString();
-                txtPedidoComprador.Text = dr[8].ToString();
-                cbxCompraUnidade.SelectedValue = dr[9];
-                txtNomeComprador.Text = dr[10].ToString();
-                txtObs.Text = dr[11].ToString();
 
-                con.desconectar();
-
-                if (idPedido == "")
+                if (dr.HasRows)
                 {
-                }
-                else 
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "SELECT PROD.COD_PRODUTO,PROD.DESCRICAO_PROD,PPED.SALDO_PEDIDO,PPED.VALOR " +
-                        "FROM TB_PRODUTOS_PEDIDO AS PPED INNER JOIN TB_PRODUTO AS PROD ON PPED.ID_PRODUTO = PROD.ID_PRODUTO " +
-                        "WHERE PPED.ID_PEDIDO = " + idPedido;
+                    idPedido = dr[0].ToString();
+                    cbxFabricante.SelectedValue = dr[1];
+                    txtPedidoFabricante.Text = dr[2].ToString();
+                    txtNomeVendedor.Text = dr[3].ToString();
+                    dtDataPedido.Value = (DateTime)dr[4];
+                    dtPrevisaoFaturamento.Value = (DateTime)dr[5];
+                    txtPrazo.Text = dr[6].ToString();
+                    txtParcela.Text = dr[7].ToString();
+                    txtPedidoComprador.Text = dr[8].ToString();
+                    cbxCompraUnidade.SelectedValue = dr[9];
+                    txtNomeComprador.Text = dr[10].ToString();
+                    txtObs.Text = dr[11].ToString();
 
-                    try
+                    con.desconectar();
+
+
+                    if (idPedido == "")
                     {
-                        cmd.Connection = con.conectar();
-                        adapter.SelectCommand = cmd;
-
-                        DataSet dataSet = new DataSet();
-                        adapter.Fill(dataSet);
-
-                        dgvProdutosPedido.DataSource = dataSet;
-                        dgvProdutosPedido.DataMember = dataSet.Tables[0].TableName;
-                        dgvProdutosPedido.Columns[0].HeaderText = "Cod Produto";
-                        dgvProdutosPedido.Columns[1].HeaderText = "Nome Produto";
-                        dgvProdutosPedido.Columns[2].HeaderText = "Saldo";
-                        dgvProdutosPedido.Columns[3].HeaderText = "Valor";
-
-
-
-                        //dgvProdutosPedido.Columns[4].HeaderText = "Total";
-
-                        con.desconectar();
-                        valida = true;
                     }
-                    catch (SqlException ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message);
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "SELECT PROD.COD_PRODUTO,PROD.DESCRICAO_PROD,PPED.SALDO_PEDIDO,PPED.VALOR " +
+                            "FROM TB_PRODUTOS_PEDIDO AS PPED INNER JOIN TB_PRODUTO AS PROD ON PPED.ID_PRODUTO = PROD.ID_PRODUTO " +
+                            "WHERE PPED.ID_PEDIDO = " + idPedido;
+
+                        try
+                        {
+                            cmd.Connection = con.conectar();
+                            adapter.SelectCommand = cmd;
+
+                            DataSet dataSet = new DataSet();
+                            adapter.Fill(dataSet);
+
+                            dgvProdutosPedido.DataSource = dataSet;
+                            dgvProdutosPedido.DataMember = dataSet.Tables[0].TableName;
+                            dgvProdutosPedido.Columns[0].HeaderText = "Cod Produto";
+                            dgvProdutosPedido.Columns[1].HeaderText = "Nome Produto";
+                            dgvProdutosPedido.Columns[2].HeaderText = "Saldo";
+                            dgvProdutosPedido.Columns[3].HeaderText = "Valor";
+
+
+
+                            //dgvProdutosPedido.Columns[4].HeaderText = "Total";
+
+                            con.desconectar();
+                            valida = true;
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        atualizaTotais();
                     }
-                    atualizaTotais();
                 }
-                
+                              
             }
             catch (SqlException ex)
             {

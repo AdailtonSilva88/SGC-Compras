@@ -24,6 +24,19 @@ namespace SGC_Gerenciamento_de_Compras
 
         List<ProdPedido> prodPedidos = new List<ProdPedido>();
 
+        private bool codigoExiste()
+        {
+            bool existe = false;
+
+            for (int i = 0; i < dgvProdutosPedido.Rows.Count; i++)
+            {
+                if (dgvProdutosPedido.Rows[i].Cells[0].Value.ToString() == txtCodProduto.Text)
+                {
+                    existe = true;
+                }
+            }
+            return existe;
+        }
 
         private void frmPedidos_Load(object sender, EventArgs e)
         {
@@ -66,22 +79,31 @@ namespace SGC_Gerenciamento_de_Compras
                 String mensagem = "Preencha todos os campos para adicionar produtos...";
                 MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
             else
             {
-                double preco;
+                if (codigoExiste())
+                {
+                    String mensagem = "Codigo ja Existe na lista, clique 2x na linha para editar ...";
+                    MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
 
-                preco = Convert.ToDouble(txtPreco.Text);
+                    double preco;
 
-                calculo = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtPreco.Text);
+                    preco = Convert.ToDouble(txtPreco.Text);
 
-                total = total + calculo;
+                    calculo = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtPreco.Text);
 
-                dgvProdutosPedido.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, preco, calculo);
+                    total = total + calculo;
 
-                lblTotalPedido.Text = total.ToString("C");
+                    dgvProdutosPedido.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, preco, calculo);
 
-                limparProdutos();
+                    lblTotalPedido.Text = total.ToString("C");
+
+                    limparProdutos();
+                }
+
 
             }
         }
@@ -104,6 +126,13 @@ namespace SGC_Gerenciamento_de_Compras
             txtPedidoFabricante.Text = "";
             txtPrazo.Text = "";
             dgvProdutosPedido.Rows.Clear();
+            lblTotalPedido.Text = "0";
+            cbxCompraUnidade.SelectedIndex = 0;
+            cbxEtapa.SelectedIndex = 0;
+            cbxFabricante.SelectedIndex = 0;
+            dtDataPedido.Value = DateTime.Today;
+            dtPrevisaoFaturamento.Value = DateTime.Today;
+
         }
 
         private bool verificaCamposVazios()
@@ -136,8 +165,6 @@ namespace SGC_Gerenciamento_de_Compras
             return false;
         }
 
-        
-
         [Obsolete]
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
@@ -147,9 +174,12 @@ namespace SGC_Gerenciamento_de_Compras
 
             limparProdutos();
             limparDadosPedido();
+            gpProdutos.Enabled = false;
+            gpFabricante.Enabled = true;
+            cbxEtapa.Enabled = true;
+            lblEtapa.Enabled = true;
             //"Pedido Cadastrado com Sucesso !!!";
             MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
 
         }
 
@@ -222,6 +252,8 @@ namespace SGC_Gerenciamento_de_Compras
             else
             {
                 gpComprador.Enabled = true;
+                cbxEtapa.Enabled = false;
+                lblEtapa.Enabled = false;
             }
         }
 
@@ -233,7 +265,7 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else
             {
-                gpFabricante.Enabled = false;
+                gpFabricante.Enabled = false;                
                 gpProdutos.Enabled = true;
             }
         }
@@ -247,7 +279,7 @@ namespace SGC_Gerenciamento_de_Compras
             {
                 ProdPedidoDAL prodPedidoDAL = new ProdPedidoDAL();
                 ProdutoDAL pDAL = new ProdutoDAL();
-                if (pDAL.verificaCodigo(Convert.ToInt32(txtCodProduto.Text))) 
+                if (pDAL.verificaCodigo(Convert.ToInt32(txtCodProduto.Text)))
                 {
                     MessageBox.Show("Produto não cadastrado !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -255,9 +287,16 @@ namespace SGC_Gerenciamento_de_Compras
                 {
                     lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
                 }
-                
+
             }
         }
+
+        private void dgvProdutosPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 
 

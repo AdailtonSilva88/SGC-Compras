@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddFabricante = new System.Windows.Forms.Button();
             this.lblFabricante = new System.Windows.Forms.Label();
             this.dgvProdutosPedido = new System.Windows.Forms.DataGridView();
@@ -90,7 +90,7 @@
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet2TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_FABRICANTETableAdapter1 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet3TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet4TableAdapters.TB_UNIDADETableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEtapa = new System.Windows.Forms.Label();
             this.cbxEtapa = new System.Windows.Forms.ComboBox();
             this.tBETAPAPEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sGC_DBDataSet10 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet10();
@@ -158,6 +158,7 @@
             this.dgvProdutosPedido.Size = new System.Drawing.Size(624, 191);
             this.dgvProdutosPedido.TabIndex = 0;
             this.dgvProdutosPedido.TabStop = false;
+            this.dgvProdutosPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutosPedido_CellContentClick);
             this.dgvProdutosPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutosPedido_CellDoubleClick);
             // 
             // CodProduto
@@ -183,18 +184,18 @@
             // 
             // precoProduto
             // 
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.precoProduto.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.precoProduto.DefaultCellStyle = dataGridViewCellStyle1;
             this.precoProduto.HeaderText = "Preço";
             this.precoProduto.Name = "precoProduto";
             this.precoProduto.ReadOnly = true;
             // 
             // totalProdutos
             // 
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.totalProdutos.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.totalProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.totalProdutos.HeaderText = "Total";
             this.totalProdutos.Name = "totalProdutos";
             this.totalProdutos.ReadOnly = true;
@@ -471,11 +472,12 @@
             // 
             this.lblTotalPedido.AutoSize = true;
             this.lblTotalPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPedido.Location = new System.Drawing.Point(546, 735);
+            this.lblTotalPedido.Location = new System.Drawing.Point(500, 735);
             this.lblTotalPedido.Name = "lblTotalPedido";
             this.lblTotalPedido.Size = new System.Drawing.Size(20, 24);
             this.lblTotalPedido.TabIndex = 0;
             this.lblTotalPedido.Text = "0";
+            this.lblTotalPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
@@ -659,14 +661,14 @@
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
             // 
-            // label1
+            // lblEtapa
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(468, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Etapa";
+            this.lblEtapa.AutoSize = true;
+            this.lblEtapa.Location = new System.Drawing.Point(468, 53);
+            this.lblEtapa.Name = "lblEtapa";
+            this.lblEtapa.Size = new System.Drawing.Size(35, 13);
+            this.lblEtapa.TabIndex = 0;
+            this.lblEtapa.Text = "Etapa";
             // 
             // cbxEtapa
             // 
@@ -725,7 +727,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 774);
             this.Controls.Add(this.lblIdPedido);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEtapa);
             this.Controls.Add(this.cbxEtapa);
             this.Controls.Add(this.lblLançamentoPedidos);
             this.Controls.Add(this.gpProdutos);
@@ -814,7 +816,7 @@
         private SGC_DBDataSet4 sGC_DBDataSet4;
         private System.Windows.Forms.BindingSource tBUNIDADEBindingSource;
         private SGC_DBDataSet4TableAdapters.TB_UNIDADETableAdapter tB_UNIDADETableAdapter;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEtapa;
         private System.Windows.Forms.ComboBox cbxEtapa;
         private SGC_DBDataSet9 sGC_DBDataSet9;
         private System.Windows.Forms.BindingSource tBUNIDADEBindingSource1;

@@ -28,7 +28,7 @@ namespace SGC_Gerenciamento_de_Compras
             }
             else 
             {
-                String mensagem = "Insira um numero de pedido do fabricante existente...";
+                String mensagem = "Insira um numero de pedido existente...";
                 MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
