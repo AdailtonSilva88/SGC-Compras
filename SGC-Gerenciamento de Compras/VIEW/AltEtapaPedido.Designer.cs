@@ -95,6 +95,8 @@
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet11TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet12TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet13TableAdapters.TB_UNIDADETableAdapter();
+            this.lblEtapaAtual = new System.Windows.Forms.Label();
+            this.txtEtapaAtual = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBUNIDADEBindingSource)).BeginInit();
@@ -223,9 +225,10 @@
             // lblTotalPedido
             // 
             this.lblTotalPedido.AutoSize = true;
+            this.lblTotalPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPedido.Location = new System.Drawing.Point(546, 649);
             this.lblTotalPedido.Name = "lblTotalPedido";
-            this.lblTotalPedido.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalPedido.Size = new System.Drawing.Size(20, 24);
             this.lblTotalPedido.TabIndex = 31;
             this.lblTotalPedido.Text = "0";
             // 
@@ -562,9 +565,10 @@
             // lblTotalNovoPedido
             // 
             this.lblTotalNovoPedido.AutoSize = true;
+            this.lblTotalNovoPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalNovoPedido.Location = new System.Drawing.Point(561, 652);
             this.lblTotalNovoPedido.Name = "lblTotalNovoPedido";
-            this.lblTotalNovoPedido.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalNovoPedido.Size = new System.Drawing.Size(20, 24);
             this.lblTotalNovoPedido.TabIndex = 35;
             this.lblTotalNovoPedido.Text = "0";
             // 
@@ -592,6 +596,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtEtapaAtual);
+            this.groupBox3.Controls.Add(this.lblEtapaAtual);
             this.groupBox3.Controls.Add(this.txtNF);
             this.groupBox3.Controls.Add(this.lblNF);
             this.groupBox3.Controls.Add(this.btnAddEtapa);
@@ -606,7 +612,7 @@
             // 
             // txtNF
             // 
-            this.txtNF.Location = new System.Drawing.Point(85, 103);
+            this.txtNF.Location = new System.Drawing.Point(85, 112);
             this.txtNF.Name = "txtNF";
             this.txtNF.Size = new System.Drawing.Size(128, 20);
             this.txtNF.TabIndex = 19;
@@ -615,7 +621,7 @@
             // lblNF
             // 
             this.lblNF.AutoSize = true;
-            this.lblNF.Location = new System.Drawing.Point(22, 106);
+            this.lblNF.Location = new System.Drawing.Point(22, 115);
             this.lblNF.Name = "lblNF";
             this.lblNF.Size = new System.Drawing.Size(57, 13);
             this.lblNF.TabIndex = 18;
@@ -626,7 +632,7 @@
             // 
             this.btnAddEtapa.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAddEtapa.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEtapa.Location = new System.Drawing.Point(423, 60);
+            this.btnAddEtapa.Location = new System.Drawing.Point(423, 76);
             this.btnAddEtapa.Name = "btnAddEtapa";
             this.btnAddEtapa.Size = new System.Drawing.Size(29, 21);
             this.btnAddEtapa.TabIndex = 0;
@@ -636,7 +642,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 44);
+            this.label7.Location = new System.Drawing.Point(22, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 13);
             this.label7.TabIndex = 1;
@@ -648,7 +654,7 @@
             this.cbxEtapa.DisplayMember = "NOME_ETAPA_PEDIDO";
             this.cbxEtapa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEtapa.FormattingEnabled = true;
-            this.cbxEtapa.Location = new System.Drawing.Point(20, 60);
+            this.cbxEtapa.Location = new System.Drawing.Point(25, 76);
             this.cbxEtapa.Name = "cbxEtapa";
             this.cbxEtapa.Size = new System.Drawing.Size(361, 21);
             this.cbxEtapa.TabIndex = 17;
@@ -725,6 +731,23 @@
             // tB_UNIDADETableAdapter
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
+            // 
+            // lblEtapaAtual
+            // 
+            this.lblEtapaAtual.AutoSize = true;
+            this.lblEtapaAtual.Location = new System.Drawing.Point(22, 20);
+            this.lblEtapaAtual.Name = "lblEtapaAtual";
+            this.lblEtapaAtual.Size = new System.Drawing.Size(62, 13);
+            this.lblEtapaAtual.TabIndex = 20;
+            this.lblEtapaAtual.Text = "Etapa Atual";
+            // 
+            // txtEtapaAtual
+            // 
+            this.txtEtapaAtual.Enabled = false;
+            this.txtEtapaAtual.Location = new System.Drawing.Point(25, 37);
+            this.txtEtapaAtual.Name = "txtEtapaAtual";
+            this.txtEtapaAtual.Size = new System.Drawing.Size(361, 20);
+            this.txtEtapaAtual.TabIndex = 21;
             // 
             // AltEtapaPedido
             // 
@@ -833,5 +856,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorProd;
         private System.Windows.Forms.TextBox txtNF;
         private System.Windows.Forms.Label lblNF;
+        private System.Windows.Forms.Label lblEtapaAtual;
+        private System.Windows.Forms.TextBox txtEtapaAtual;
     }
 }

@@ -120,8 +120,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                     cmd.ExecuteNonQuery();
                 }
 
-
-                    con.desconectar();
+                con.desconectar();
                 this.mensagem = "Cadastrado com Sucesso";
             }
             catch (SqlException e)
@@ -130,6 +129,68 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             }
 
             return mensagem;
+        }
+
+        public Int32 BuscaIDPedido() 
+        {
+            int id = 0;
+
+            SqlDataReader dr;
+            cmd.CommandText = "SELECT MAX(ID_PEDIDO) FROM TB_PEDIDO";
+
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (!dr.IsDBNull(0))
+                {
+                    id = Convert.ToInt32(dr[0]);
+                }
+                else
+                {
+                    id = 0;
+                }
+                con.desconectar();
+
+                return id;
+
+            }
+            catch (SqlException)
+            {
+                this.mensagem = "Erro SQL";
+            }
+
+            return id;
+        
+        }
+
+        public bool VerificaNfExiste(Int32 nf, Int32 fabricante) 
+        {
+            bool verifica = false;
+
+            SqlDataReader dr;
+            cmd.CommandText = "SELECT * FROM TB_PEDIDO WHERE NF = @nf AND ID_FABRICANTE = @fabricante";
+            cmd.Parameters.AddWithValue("@nf", nf);
+            cmd.Parameters.AddWithValue("@fabricante",fabricante);
+
+            cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    verifica = true;
+                    return verifica;
+                }
+               
+                con.desconectar();
+
+                return verifica;          
+
+        
         }
 
         

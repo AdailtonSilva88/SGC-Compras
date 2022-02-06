@@ -16,5 +16,12 @@ namespace SGC_Gerenciamento_de_Compras
         {
             InitializeComponent();
         }
+
+        private void BaixarNFs_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet16.TB_FABRICANTE'. Você pode movê-la ou removê-la conforme necessário.
+            this.tB_FABRICANTETableAdapter.Fill(this.sGC_DBDataSet16.TB_FABRICANTE);
+
+        }
     }
 }

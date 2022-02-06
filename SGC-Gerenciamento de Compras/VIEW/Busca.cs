@@ -60,7 +60,7 @@ namespace SGC_Gerenciamento_de_Compras
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             cmd.Parameters.Clear();
-            cmd.CommandText = "SELECT FAB.NOME_FABRICANTE,TP.PEDIDO_FABRICANTE, TP.PEDIDO_COMPRADOR,TP.NOME_COMPRADOR,TP.NOME_VENDEDOR,TP.PREVISAO_FATURAMENTO,TP.PRAZO," +
+            cmd.CommandText = "SELECT TP.ID_PEDIDO,FAB.NOME_FABRICANTE,TP.PEDIDO_FABRICANTE, TP.PEDIDO_COMPRADOR,TP.NOME_COMPRADOR,TP.NOME_VENDEDOR,TP.PREVISAO_FATURAMENTO,TP.PRAZO," +
                 "UNI.NOME_UNIDADE,ETA.NOME_ETAPA_PEDIDO,PR.DESCRICAO_PROD,PD.QTD_PEDIDO,PD.VALOR FROM TB_PEDIDO AS TP " +
                 "INNER JOIN TB_PRODUTOS_PEDIDO AS PD ON TP.ID_PEDIDO = PD.ID_PEDIDO " +
                 "INNER JOIN TB_PRODUTO AS PR ON PD.ID_PRODUTO = PR.ID_PRODUTO " +
@@ -79,19 +79,20 @@ namespace SGC_Gerenciamento_de_Compras
 
                 dgvResultadoBusca.DataSource = dataSet;
                 dgvResultadoBusca.DataMember = dataSet.Tables[0].TableName;
-                dgvResultadoBusca.Columns[0].HeaderText = "Nome Fabricante";
-                dgvResultadoBusca.Columns[1].HeaderText = "Ped Fabricante";
-                dgvResultadoBusca.Columns[2].HeaderText = "Ped Comprador";
-                dgvResultadoBusca.Columns[3].HeaderText = "Nome Comprador";
-                dgvResultadoBusca.Columns[4].HeaderText = "Nome Vendedor";
-                dgvResultadoBusca.Columns[5].HeaderText = "Prev Faturamento";
-                dgvResultadoBusca.Columns[5].DefaultCellStyle.Format = "d";
-                dgvResultadoBusca.Columns[6].HeaderText = "Prazo";
-                dgvResultadoBusca.Columns[7].HeaderText = "Unidade";
-                dgvResultadoBusca.Columns[8].HeaderText = "Etapa";
-                dgvResultadoBusca.Columns[9].HeaderText = "Nome Produto";
-                dgvResultadoBusca.Columns[10].HeaderText = "Qtd";
-                dgvResultadoBusca.Columns[11].HeaderText = "Valor";              
+                dgvResultadoBusca.Columns[0].HeaderText = "ID Pedido";
+                dgvResultadoBusca.Columns[1].HeaderText = "Nome Fabricante";
+                dgvResultadoBusca.Columns[2].HeaderText = "Ped Fabricante";
+                dgvResultadoBusca.Columns[3].HeaderText = "Ped Comprador";
+                dgvResultadoBusca.Columns[4].HeaderText = "Nome Comprador";
+                dgvResultadoBusca.Columns[5].HeaderText = "Nome Vendedor";
+                dgvResultadoBusca.Columns[6].HeaderText = "Prev Faturamento";
+                dgvResultadoBusca.Columns[6].DefaultCellStyle.Format = "d";
+                dgvResultadoBusca.Columns[7].HeaderText = "Prazo";
+                dgvResultadoBusca.Columns[8].HeaderText = "Unidade";
+                dgvResultadoBusca.Columns[9].HeaderText = "Etapa";
+                dgvResultadoBusca.Columns[10].HeaderText = "Nome Produto";
+                dgvResultadoBusca.Columns[11].HeaderText = "Qtd";
+                dgvResultadoBusca.Columns[12].HeaderText = "Valor";              
 
                 con.desconectar();
             }

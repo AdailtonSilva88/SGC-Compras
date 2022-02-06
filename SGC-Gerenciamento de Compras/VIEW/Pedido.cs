@@ -178,9 +178,16 @@ namespace SGC_Gerenciamento_de_Compras
             gpFabricante.Enabled = true;
             cbxEtapa.Enabled = true;
             lblEtapa.Enabled = true;
-            //"Pedido Cadastrado com Sucesso !!!";
+
             MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+            //Busca ID e exibe no MessageBox
+            if (mensagem == "Cadastrado com Sucesso") 
+            {
+                int id = pedidoDAL.BuscaIDPedido();
+                MessageBox.Show("O ID do seu Pedido é " + id, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }            
+            
         }
 
         private Pedido DadosPedido()

@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscaNF = new System.Windows.Forms.TextBox();
             this.btnBuscaNF = new System.Windows.Forms.Button();
             this.btnBaixaNF = new System.Windows.Forms.Button();
             this.dgvBuscaNF = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sGC_DBDataSet16 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet16();
+            this.tBFABRICANTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet16TableAdapters.TB_FABRICANTETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscaNF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 92);
+            this.label2.Location = new System.Drawing.Point(12, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 1;
@@ -58,14 +65,14 @@
             // 
             // txtBuscaNF
             // 
-            this.txtBuscaNF.Location = new System.Drawing.Point(15, 108);
+            this.txtBuscaNF.Location = new System.Drawing.Point(15, 127);
             this.txtBuscaNF.Name = "txtBuscaNF";
             this.txtBuscaNF.Size = new System.Drawing.Size(180, 20);
             this.txtBuscaNF.TabIndex = 2;
             // 
             // btnBuscaNF
             // 
-            this.btnBuscaNF.Location = new System.Drawing.Point(215, 92);
+            this.btnBuscaNF.Location = new System.Drawing.Point(215, 108);
             this.btnBuscaNF.Name = "btnBuscaNF";
             this.btnBuscaNF.Size = new System.Drawing.Size(75, 39);
             this.btnBuscaNF.TabIndex = 3;
@@ -74,7 +81,7 @@
             // 
             // btnBaixaNF
             // 
-            this.btnBaixaNF.Location = new System.Drawing.Point(316, 92);
+            this.btnBaixaNF.Location = new System.Drawing.Point(316, 108);
             this.btnBaixaNF.Name = "btnBaixaNF";
             this.btnBaixaNF.Size = new System.Drawing.Size(75, 39);
             this.btnBaixaNF.TabIndex = 4;
@@ -86,17 +93,43 @@
             this.dgvBuscaNF.AllowUserToAddRows = false;
             this.dgvBuscaNF.AllowUserToDeleteRows = false;
             this.dgvBuscaNF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBuscaNF.Location = new System.Drawing.Point(15, 137);
+            this.dgvBuscaNF.Location = new System.Drawing.Point(15, 153);
             this.dgvBuscaNF.Name = "dgvBuscaNF";
             this.dgvBuscaNF.ReadOnly = true;
-            this.dgvBuscaNF.Size = new System.Drawing.Size(376, 295);
+            this.dgvBuscaNF.Size = new System.Drawing.Size(376, 279);
             this.dgvBuscaNF.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.tBFABRICANTEBindingSource;
+            this.comboBox1.DisplayMember = "NOME_FABRICANTE";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(15, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(180, 21);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.ValueMember = "ID_FABRICANTE";
+            // 
+            // sGC_DBDataSet16
+            // 
+            this.sGC_DBDataSet16.DataSetName = "SGC_DBDataSet16";
+            this.sGC_DBDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tBFABRICANTEBindingSource
+            // 
+            this.tBFABRICANTEBindingSource.DataMember = "TB_FABRICANTE";
+            this.tBFABRICANTEBindingSource.DataSource = this.sGC_DBDataSet16;
+            // 
+            // tB_FABRICANTETableAdapter
+            // 
+            this.tB_FABRICANTETableAdapter.ClearBeforeFill = true;
             // 
             // BaixarNFs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 444);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dgvBuscaNF);
             this.Controls.Add(this.btnBaixaNF);
             this.Controls.Add(this.btnBuscaNF);
@@ -106,7 +139,10 @@
             this.Name = "BaixarNFs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baixar NFs";
+            this.Load += new System.EventHandler(this.BaixarNFs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscaNF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +156,9 @@
         private System.Windows.Forms.Button btnBuscaNF;
         private System.Windows.Forms.Button btnBaixaNF;
         private System.Windows.Forms.DataGridView dgvBuscaNF;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private SGC_DBDataSet16 sGC_DBDataSet16;
+        private System.Windows.Forms.BindingSource tBFABRICANTEBindingSource;
+        private SGC_DBDataSet16TableAdapters.TB_FABRICANTETableAdapter tB_FABRICANTETableAdapter;
     }
 }

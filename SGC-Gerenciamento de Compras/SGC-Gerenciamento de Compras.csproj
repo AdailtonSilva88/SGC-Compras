@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SGC_DBDataSet15.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SGC_DBDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGC_DBDataSet16.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SGC_DBDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -345,6 +350,17 @@
     </None>
     <None Include="SGC_DBDataSet15.xss">
       <DependentUpon>SGC_DBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet16.xsc">
+      <DependentUpon>SGC_DBDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="SGC_DBDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGC_DBDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGC_DBDataSet16.xss">
+      <DependentUpon>SGC_DBDataSet16.xsd</DependentUpon>
     </None>
     <None Include="SGC_DBDataSet2.xsc">
       <DependentUpon>SGC_DBDataSet2.xsd</DependentUpon>

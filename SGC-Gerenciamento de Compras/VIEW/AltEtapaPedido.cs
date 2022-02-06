@@ -27,7 +27,7 @@ namespace SGC_Gerenciamento_de_Compras
         int qtd;
         double valor;
         double total = 0;
-        private List<ProdPedido> prodPedidos;
+        
 
         private Pedido DadosPedido()
         {
@@ -63,15 +63,16 @@ namespace SGC_Gerenciamento_de_Compras
 
         private List<ProdPedido> ListaProdutos()
         {
+            List<ProdPedido> prodPedidos = new List<ProdPedido>();
 
-            for (int i = 0; i < dgvProdutosPedido.Rows.Count; i++)
+            for (int i = 0; i < dgvProdEtapas.Rows.Count; i++)
             {
                 prodPedidos.Add(new ProdPedido(Convert.ToInt32(dgvProdEtapas.Rows[i].Cells[0].Value),
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[3].Value)));
-
-            }
+               
+            } 
             return prodPedidos;
 
         }
@@ -95,8 +96,9 @@ namespace SGC_Gerenciamento_de_Compras
 
             SqlDataReader dr;
             cmd.Parameters.Clear();
-            cmd.CommandText = "SELECT ID_PEDIDO,ID_FABRICANTE,PEDIDO_FABRICANTE,NOME_VENDEDOR,DATA_PEDIDO,PREVISAO_FATURAMENTO,PRAZO,PARCELA,PEDIDO_COMPRADOR,ID_UNIDADE,NOME_COMPRADOR,OBS " +
-                "FROM TB_PEDIDO WHERE PEDIDO_FABRICANTE = " + pedido ;
+            cmd.CommandText = "SELECT TP.ID_PEDIDO,TP.ID_FABRICANTE,TP.PEDIDO_FABRICANTE,TP.NOME_VENDEDOR,TP.DATA_PEDIDO,TP.PREVISAO_FATURAMENTO,TP.PRAZO,TP.PARCELA,TP.PEDIDO_COMPRADOR,TP.ID_UNIDADE,TP.NOME_COMPRADOR,TP.OBS,EP.NOME_ETAPA_PEDIDO " +
+                "FROM TB_PEDIDO as TP INNER JOIN TB_ETAPA_PEDIDO AS EP ON TP.ID_ETAPA_PEDIDO = EP.ID_ETAPA_PEDIDO " +
+                "WHERE TP.ID_PEDIDO = " + pedido ;
 
             try
             {
@@ -118,6 +120,7 @@ namespace SGC_Gerenciamento_de_Compras
                     cbxCompraUnidade.SelectedValue = dr[9];
                     txtNomeComprador.Text = dr[10].ToString();
                     txtObs.Text = dr[11].ToString();
+                    txtEtapaAtual.Text = dr[12].ToString();
 
                     con.desconectar();
 
@@ -187,20 +190,23 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
-            int saldo;
-            dgvProdEtapas.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, txtValor.Text);
-            saldo = qtd - Convert.ToInt32(txtQtd.Text);
+          
+                int saldo;
+                dgvProdEtapas.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, txtValor.Text);
+                saldo = qtd - Convert.ToInt32(txtQtd.Text);
 
-            int index = dgvProdutosPedido.CurrentRow.Index;
+                int index = dgvProdutosPedido.CurrentRow.Index;
 
-            if (saldo == 0) {
-                dgvProdutosPedido.Rows.RemoveAt(index);
-            }
-            else 
-            {
-                dgvProdutosPedido.Rows[index].Cells[2].Value = saldo;
-            }
-            atualizaTotais();
+                if (saldo == 0)
+                {
+                    dgvProdutosPedido.Rows.RemoveAt(index);
+                }
+                else
+                {
+                    dgvProdutosPedido.Rows[index].Cells[2].Value = saldo;
+                }
+                atualizaTotais();
+            
             
         }
 
@@ -217,12 +223,20 @@ namespace SGC_Gerenciamento_de_Compras
 
             total = 0;
 
+
+
             foreach (DataGridViewRow linha in dgvProdutosPedido.Rows)
             {
                 valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
                 total = total + valor;
 
                 lblTotalPedido.Text = total.ToString();
+            }
+
+
+            if (dgvProdutosPedido.RowCount < 1)
+            {
+                lblTotalPedido.Text = "0";
             }
 
             total = 0;
@@ -232,9 +246,42 @@ namespace SGC_Gerenciamento_de_Compras
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             PedidoDAL pedidoDAL = new PedidoDAL();
+            String mensagem = "";
 
-            String mensagem = pedidoDAL.cadEtapaPedido(DadosPedido(), ListaProdutos());
+            if (dgvProdEtapas.RowCount < 1)
+            {
+                MessageBox.Show("Insira pelo menos 1 item a lista para prosseguir ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
 
+                if (cbxEtapa.Text == "NF")
+                {
+                    if (txtNF.Text == "")
+                    {
+                        MessageBox.Show("Preencha o numero da NF ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+
+                        bool existe = false;
+                        existe = pedidoDAL.VerificaNfExiste(Convert.ToInt32(txtNF.Text), Convert.ToInt32(cbxFabricante.SelectedValue));
+                        if (existe)
+                        {
+                            MessageBox.Show("Essa NF ja foi lançada para este fabricante ..", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+                            mensagem = pedidoDAL.cadEtapaPedido(DadosPedido(), ListaProdutos());
+                        }
+                    }
+                }
+
+                else
+                {
+                    mensagem = pedidoDAL.cadEtapaPedido(DadosPedido(), ListaProdutos());
+                }
+            }
            
             //"Pedido Cadastrado com Sucesso !!!";
             MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
