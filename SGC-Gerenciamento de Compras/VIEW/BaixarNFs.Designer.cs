@@ -36,12 +36,12 @@
             this.btnBaixaNF = new System.Windows.Forms.Button();
             this.dgvBuscaNF = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.sGC_DBDataSet16 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet16();
             this.tBFABRICANTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sGC_DBDataSet16 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet16();
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet16TableAdapters.TB_FABRICANTETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscaNF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,15 +110,15 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.ValueMember = "ID_FABRICANTE";
             // 
-            // sGC_DBDataSet16
-            // 
-            this.sGC_DBDataSet16.DataSetName = "SGC_DBDataSet16";
-            this.sGC_DBDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tBFABRICANTEBindingSource
             // 
             this.tBFABRICANTEBindingSource.DataMember = "TB_FABRICANTE";
             this.tBFABRICANTEBindingSource.DataSource = this.sGC_DBDataSet16;
+            // 
+            // sGC_DBDataSet16
+            // 
+            this.sGC_DBDataSet16.DataSetName = "SGC_DBDataSet16";
+            this.sGC_DBDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tB_FABRICANTETableAdapter
             // 
@@ -141,8 +141,8 @@
             this.Text = "Baixar NFs";
             this.Load += new System.EventHandler(this.BaixarNFs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscaNF)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet16)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

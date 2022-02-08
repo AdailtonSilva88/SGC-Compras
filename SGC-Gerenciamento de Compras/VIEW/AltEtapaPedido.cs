@@ -27,7 +27,7 @@ namespace SGC_Gerenciamento_de_Compras
         int qtd;
         double valor;
         double total = 0;
-        
+
 
         private Pedido DadosPedido()
         {
@@ -41,7 +41,7 @@ namespace SGC_Gerenciamento_de_Compras
             pedido.NomeVendedor = txtNomeVendedor.Text;
             pedido.DataPedido = dtDataPedido.Value;
             pedido.PrevisaoFaturamento = dtPrevisaoFaturamento.Value;
-            pedido.Prazo = Convert.ToInt32(txtPrazo.Text);            
+            pedido.Prazo = Convert.ToInt32(txtPrazo.Text);
             pedido.Parcela = Convert.ToInt32(txtParcela.Text);
             pedido.PedidoComprador = txtPedidoComprador.Text;
             pedido.IdUnidade = (int)cbxCompraUnidade.SelectedValue;
@@ -71,15 +71,15 @@ namespace SGC_Gerenciamento_de_Compras
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[2].Value),
                 Convert.ToDouble(dgvProdEtapas.Rows[i].Cells[3].Value)));
-               
-            } 
+
+            }
             return prodPedidos;
 
         }
 
         private void AltEtapaPedido_Load(object sender, EventArgs e)
         {
-            
+
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet13.TB_UNIDADE'. Você pode movê-la ou removê-la conforme necessário.
             this.tB_UNIDADETableAdapter.Fill(this.sGC_DBDataSet13.TB_UNIDADE);
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet12.TB_FABRICANTE'. Você pode movê-la ou removê-la conforme necessário.
@@ -89,7 +89,7 @@ namespace SGC_Gerenciamento_de_Compras
 
         }
 
-        public bool BuscaPedido(String pedido) 
+        public bool BuscaPedido(String pedido)
         {
             //carrega os dados dos pedidos
             bool valida = false;
@@ -98,7 +98,9 @@ namespace SGC_Gerenciamento_de_Compras
             cmd.Parameters.Clear();
             cmd.CommandText = "SELECT TP.ID_PEDIDO,TP.ID_FABRICANTE,TP.PEDIDO_FABRICANTE,TP.NOME_VENDEDOR,TP.DATA_PEDIDO,TP.PREVISAO_FATURAMENTO,TP.PRAZO,TP.PARCELA,TP.PEDIDO_COMPRADOR,TP.ID_UNIDADE,TP.NOME_COMPRADOR,TP.OBS,EP.NOME_ETAPA_PEDIDO " +
                 "FROM TB_PEDIDO as TP INNER JOIN TB_ETAPA_PEDIDO AS EP ON TP.ID_ETAPA_PEDIDO = EP.ID_ETAPA_PEDIDO " +
-                "WHERE TP.ID_PEDIDO = " + pedido ;
+                "WHERE TP.ID_PEDIDO = @pedido AND TP.ID_ETAPA_PEDIDO <> 3";
+            cmd.Parameters.AddWithValue("@pedido", pedido);
+
 
             try
             {
@@ -134,7 +136,8 @@ namespace SGC_Gerenciamento_de_Compras
                         cmd.Parameters.Clear();
                         cmd.CommandText = "SELECT PROD.COD_PRODUTO,PROD.DESCRICAO_PROD,PPED.SALDO_PEDIDO,PPED.VALOR " +
                             "FROM TB_PRODUTOS_PEDIDO AS PPED INNER JOIN TB_PRODUTO AS PROD ON PPED.ID_PRODUTO = PROD.ID_PRODUTO " +
-                            "WHERE PPED.ID_PEDIDO = " + idPedido;
+                            "WHERE PPED.ID_PEDIDO = @idPedido AND PPED.SALDO_PEDIDO > 0 ";
+                        cmd.Parameters.AddWithValue("@idPedido", idPedido);
 
                         try
                         {
@@ -165,7 +168,7 @@ namespace SGC_Gerenciamento_de_Compras
                         atualizaTotais();
                     }
                 }
-                              
+
             }
             catch (SqlException ex)
             {
@@ -190,32 +193,32 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
-          
-                int saldo;
-                dgvProdEtapas.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, txtValor.Text);
-                saldo = qtd - Convert.ToInt32(txtQtd.Text);
 
-                int index = dgvProdutosPedido.CurrentRow.Index;
+            int saldo;
+            dgvProdEtapas.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, txtValor.Text);
+            saldo = qtd - Convert.ToInt32(txtQtd.Text);
 
-                if (saldo == 0)
-                {
-                    dgvProdutosPedido.Rows.RemoveAt(index);
-                }
-                else
-                {
-                    dgvProdutosPedido.Rows[index].Cells[2].Value = saldo;
-                }
-                atualizaTotais();
-            
-            
+            int index = dgvProdutosPedido.CurrentRow.Index;
+
+            if (saldo == 0)
+            {
+                dgvProdutosPedido.Rows.RemoveAt(index);
+            }
+            else
+            {
+                dgvProdutosPedido.Rows[index].Cells[2].Value = saldo;
+            }
+            atualizaTotais();
+
+
         }
 
-        private void atualizaTotais() 
+        private void atualizaTotais()
         {
-             
+
             foreach (DataGridViewRow linha in dgvProdEtapas.Rows)
             {
-               valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
+                valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
                 total = total + valor;
 
                 lblTotalNovoPedido.Text = total.ToString();
@@ -282,7 +285,7 @@ namespace SGC_Gerenciamento_de_Compras
                     mensagem = pedidoDAL.cadEtapaPedido(DadosPedido(), ListaProdutos());
                 }
             }
-           
+
             //"Pedido Cadastrado com Sucesso !!!";
             MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
