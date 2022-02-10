@@ -151,6 +151,7 @@ namespace SGC_Gerenciamento_de_Compras
                             dgvProdutosPedido.DataMember = dataSet.Tables[0].TableName;
                             dgvProdutosPedido.Columns[0].HeaderText = "Cod Produto";
                             dgvProdutosPedido.Columns[1].HeaderText = "Nome Produto";
+                            dgvProdutosPedido.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
                             dgvProdutosPedido.Columns[2].HeaderText = "Saldo";
                             dgvProdutosPedido.Columns[3].HeaderText = "Valor";
 
@@ -196,6 +197,7 @@ namespace SGC_Gerenciamento_de_Compras
 
             int saldo;
             dgvProdEtapas.Rows.Add(txtCodProduto.Text, lblNomeProduto.Text, txtQtd.Text, txtValor.Text);
+            dgvProdEtapas.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             saldo = qtd - Convert.ToInt32(txtQtd.Text);
 
             int index = dgvProdutosPedido.CurrentRow.Index;
@@ -221,7 +223,7 @@ namespace SGC_Gerenciamento_de_Compras
                 valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
                 total = total + valor;
 
-                lblTotalNovoPedido.Text = total.ToString();
+                lblTotalNovoPedido.Text = total.ToString("C");
             }
 
             total = 0;
@@ -233,7 +235,7 @@ namespace SGC_Gerenciamento_de_Compras
                 valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
                 total = total + valor;
 
-                lblTotalPedido.Text = total.ToString();
+                lblTotalPedido.Text = total.ToString("C");
             }
 
 

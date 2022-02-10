@@ -34,11 +34,14 @@
             this.btnCadastros = new System.Windows.Forms.Button();
             this.btnConsultaPedidos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLancarPedido
             // 
-            this.btnLancarPedido.Location = new System.Drawing.Point(10, 92);
+            this.btnLancarPedido.AutoEllipsis = true;
+            this.btnLancarPedido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLancarPedido.Location = new System.Drawing.Point(14, 133);
             this.btnLancarPedido.Name = "btnLancarPedido";
             this.btnLancarPedido.Size = new System.Drawing.Size(136, 104);
             this.btnLancarPedido.TabIndex = 0;
@@ -48,7 +51,9 @@
             // 
             // btnEtapaPedido
             // 
-            this.btnEtapaPedido.Location = new System.Drawing.Point(170, 92);
+            this.btnEtapaPedido.AutoEllipsis = true;
+            this.btnEtapaPedido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtapaPedido.Location = new System.Drawing.Point(174, 133);
             this.btnEtapaPedido.Name = "btnEtapaPedido";
             this.btnEtapaPedido.Size = new System.Drawing.Size(136, 104);
             this.btnEtapaPedido.TabIndex = 1;
@@ -58,7 +63,9 @@
             // 
             // btnBaixarNFs
             // 
-            this.btnBaixarNFs.Location = new System.Drawing.Point(335, 92);
+            this.btnBaixarNFs.AutoEllipsis = true;
+            this.btnBaixarNFs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaixarNFs.Location = new System.Drawing.Point(339, 133);
             this.btnBaixarNFs.Name = "btnBaixarNFs";
             this.btnBaixarNFs.Size = new System.Drawing.Size(136, 104);
             this.btnBaixarNFs.TabIndex = 2;
@@ -68,7 +75,9 @@
             // 
             // btnCadastros
             // 
-            this.btnCadastros.Location = new System.Drawing.Point(496, 92);
+            this.btnCadastros.AutoEllipsis = true;
+            this.btnCadastros.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastros.Location = new System.Drawing.Point(16, 266);
             this.btnCadastros.Name = "btnCadastros";
             this.btnCadastros.Size = new System.Drawing.Size(136, 104);
             this.btnCadastros.TabIndex = 3;
@@ -78,7 +87,9 @@
             // 
             // btnConsultaPedidos
             // 
-            this.btnConsultaPedidos.Location = new System.Drawing.Point(656, 92);
+            this.btnConsultaPedidos.AutoEllipsis = true;
+            this.btnConsultaPedidos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaPedidos.Location = new System.Drawing.Point(174, 266);
             this.btnConsultaPedidos.Name = "btnConsultaPedidos";
             this.btnConsultaPedidos.Size = new System.Drawing.Size(136, 104);
             this.btnConsultaPedidos.TabIndex = 4;
@@ -96,11 +107,23 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Menu";
             // 
+            // button1
+            // 
+            this.button1.AutoEllipsis = true;
+            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(339, 266);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 104);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Relatorios";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 314);
+            this.ClientSize = new System.Drawing.Size(492, 405);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultaPedidos);
             this.Controls.Add(this.btnCadastros);
@@ -123,5 +146,6 @@
         private System.Windows.Forms.Button btnCadastros;
         private System.Windows.Forms.Button btnConsultaPedidos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

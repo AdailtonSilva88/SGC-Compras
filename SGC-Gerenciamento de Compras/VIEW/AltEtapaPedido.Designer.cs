@@ -81,6 +81,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtEtapaAtual = new System.Windows.Forms.TextBox();
+            this.lblEtapaAtual = new System.Windows.Forms.Label();
             this.txtNF = new System.Windows.Forms.TextBox();
             this.lblNF = new System.Windows.Forms.Label();
             this.btnAddEtapa = new System.Windows.Forms.Button();
@@ -95,8 +97,7 @@
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet11TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet12TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet13TableAdapters.TB_UNIDADETableAdapter();
-            this.lblEtapaAtual = new System.Windows.Forms.Label();
-            this.txtEtapaAtual = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBUNIDADEBindingSource)).BeginInit();
@@ -610,6 +611,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados da Nova Etapa";
             // 
+            // txtEtapaAtual
+            // 
+            this.txtEtapaAtual.Enabled = false;
+            this.txtEtapaAtual.Location = new System.Drawing.Point(25, 37);
+            this.txtEtapaAtual.Name = "txtEtapaAtual";
+            this.txtEtapaAtual.Size = new System.Drawing.Size(361, 20);
+            this.txtEtapaAtual.TabIndex = 21;
+            // 
+            // lblEtapaAtual
+            // 
+            this.lblEtapaAtual.AutoSize = true;
+            this.lblEtapaAtual.Location = new System.Drawing.Point(22, 20);
+            this.lblEtapaAtual.Name = "lblEtapaAtual";
+            this.lblEtapaAtual.Size = new System.Drawing.Size(62, 13);
+            this.lblEtapaAtual.TabIndex = 20;
+            this.lblEtapaAtual.Text = "Etapa Atual";
+            // 
             // txtNF
             // 
             this.txtNF.Location = new System.Drawing.Point(85, 112);
@@ -674,6 +692,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.DarkGray;
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.dgvProdutosPedido);
             this.groupBox4.Controls.Add(this.gpFabricante);
             this.groupBox4.Controls.Add(this.groupBox1);
@@ -732,22 +751,14 @@
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
             // 
-            // lblEtapaAtual
+            // label5
             // 
-            this.lblEtapaAtual.AutoSize = true;
-            this.lblEtapaAtual.Location = new System.Drawing.Point(22, 20);
-            this.lblEtapaAtual.Name = "lblEtapaAtual";
-            this.lblEtapaAtual.Size = new System.Drawing.Size(62, 13);
-            this.lblEtapaAtual.TabIndex = 20;
-            this.lblEtapaAtual.Text = "Etapa Atual";
-            // 
-            // txtEtapaAtual
-            // 
-            this.txtEtapaAtual.Enabled = false;
-            this.txtEtapaAtual.Location = new System.Drawing.Point(25, 37);
-            this.txtEtapaAtual.Name = "txtEtapaAtual";
-            this.txtEtapaAtual.Size = new System.Drawing.Size(361, 20);
-            this.txtEtapaAtual.TabIndex = 21;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(431, 328);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(199, 13);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "# Duplo clique para selecionar o produto";
             // 
             // AltEtapaPedido
             // 
@@ -858,5 +869,6 @@
         private System.Windows.Forms.Label lblNF;
         private System.Windows.Forms.Label lblEtapaAtual;
         private System.Windows.Forms.TextBox txtEtapaAtual;
+        private System.Windows.Forms.Label label5;
     }
 }
