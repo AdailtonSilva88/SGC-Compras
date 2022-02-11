@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SGC_Gerenciamento_de_Compras.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,12 +18,82 @@ namespace SGC_Gerenciamento_de_Compras
         {
             InitializeComponent();
         }
+        SqlCommand cmd = new SqlCommand();
+        Conexao con = new Conexao();
+
 
         private void BaixarNFs_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet16.TB_FABRICANTE'. Você pode movê-la ou removê-la conforme necessário.
             this.tB_FABRICANTETableAdapter.Fill(this.sGC_DBDataSet16.TB_FABRICANTE);
 
+        }
+
+        private void btnBuscaNF_Click(object sender, EventArgs e)
+        {
+            if (!BuscaNfExiste()) 
+            {
+                MessageBox.Show("NF não encontrada !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        public void atualizaTotais() 
+        {
+            double valor = 0;
+            double total = 0;
+
+            foreach (DataGridViewRow linha in dgvBuscaNF.Rows)
+            {
+                valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
+                total = total + valor;
+
+                lblTotal.Text = total.ToString("C");
+            }
+        }
+
+
+        public bool BuscaNfExiste()
+        {
+            bool verifica = false;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "SELECT COD_PRODUTO,DESCRICAO_PROD,SALDO_PEDIDO,VALOR FROM TB_PRODUTOS_PEDIDO AS PD " +
+                "INNER JOIN TB_PEDIDO AS TP ON TP.ID_PEDIDO = PD.ID_PEDIDO INNER JOIN TB_PRODUTO AS PR ON PD.ID_PRODUTO = PR.ID_PRODUTO " +
+                "WHERE NF = @nf AND ID_FABRICANTE = @idFabricante";
+               
+            cmd.Parameters.AddWithValue("@nf", txtBuscaNF.Text);
+            cmd.Parameters.AddWithValue("@idFabricante", cbxFabricante.SelectedValue);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                adapter.SelectCommand = cmd;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                dgvBuscaNF.DataSource = dataSet;
+                dgvBuscaNF.DataMember = dataSet.Tables[0].TableName;
+                dgvBuscaNF.Columns[0].HeaderText = "Cod Produto";
+                dgvBuscaNF.Columns[1].HeaderText = "Nome Produto";
+                dgvBuscaNF.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvBuscaNF.Columns[2].HeaderText = "Qtd";
+                dgvBuscaNF.Columns[3].HeaderText = "Valor";
+
+                atualizaTotais();
+
+                //dgvProdutosPedido.Columns[4].HeaderText = "Total";
+
+                con.desconectar();
+                verifica = true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return verifica;
         }
     }
 }

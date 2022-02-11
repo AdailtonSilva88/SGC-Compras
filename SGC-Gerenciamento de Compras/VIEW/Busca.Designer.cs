@@ -1,6 +1,6 @@
 ﻿namespace SGC_Gerenciamento_de_Compras
 {
-    partial class Busca
+    partial class frmBusca
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@
             this.sGC_DBDataSet15 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet15();
             this.tBUNIDADEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet15TableAdapters.TB_UNIDADETableAdapter();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tBFABRICANTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sGC_DBDataSet14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoBusca)).BeginInit();
@@ -250,11 +251,22 @@
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
             // 
-            // Busca
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(994, 9);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(86, 24);
+            this.btnExportar.TabIndex = 9;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // frmBusca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 714);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.dgvResultadoBusca);
             this.Controls.Add(this.lblNomeProduto);
             this.Controls.Add(this.txtProduto);
@@ -273,7 +285,7 @@
             this.Controls.Add(this.btnBusca);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Busca";
+            this.Name = "frmBusca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busca";
             this.Load += new System.EventHandler(this.Busca_Load);
@@ -313,5 +325,6 @@
         private SGC_DBDataSet15 sGC_DBDataSet15;
         private System.Windows.Forms.BindingSource tBUNIDADEBindingSource;
         private SGC_DBDataSet15TableAdapters.TB_UNIDADETableAdapter tB_UNIDADETableAdapter;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

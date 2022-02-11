@@ -43,7 +43,7 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnConsultaPedidos_Click(object sender, EventArgs e)
         {
-            Busca busca = new Busca();
+            frmBusca busca = new frmBusca();
             busca.ShowDialog();
         }       
     }

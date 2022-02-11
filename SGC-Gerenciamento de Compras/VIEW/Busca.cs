@@ -10,11 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SGC_Gerenciamento_de_Compras
 {
-    public partial class Busca : Form
+    public partial class frmBusca : Form
     {
-        public Busca()
+        public frmBusca()
         {
             InitializeComponent();
         }
@@ -23,33 +24,36 @@ namespace SGC_Gerenciamento_de_Compras
         SqlCommand cmd = new SqlCommand();
         Conexao con = new Conexao();
 
+        Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+
+
         private void btnBusca_Click(object sender, EventArgs e)
-        {            
+        {
             if (txtPedidoCliente.Text != "")
             {
-                buscar = "WHERE TP.PEDIDO_COMPRADOR = " + txtPedidoCliente.Text;                
+                buscar = "WHERE TP.PEDIDO_COMPRADOR = " + txtPedidoCliente.Text;
             }
             else if (txtPedidoFabricante.Text != "")
             {
-                buscar = "WHERE TP.PEDIDO_FABRICANTE = " + txtPedidoFabricante.Text;                
+                buscar = "WHERE TP.PEDIDO_FABRICANTE = " + txtPedidoFabricante.Text;
             }
             else if (txtNF.Text != "")
             {
-                buscar = "WHERE TP.NF = " + txtNF.Text;                
+                buscar = "WHERE TP.NF = " + txtNF.Text;
             }
             else if (txtVendedor.Text != "")
             {
-                buscar = "WHERE TP.NOME_VENDEDOR = '" + txtVendedor.Text + "'";                
+                buscar = "WHERE TP.NOME_VENDEDOR = '" + txtVendedor.Text + "'";
             }
             else if (txtComprador.Text != "")
             {
-                buscar = "WHERE TP.NOME_COMPRADOR = '" + txtComprador.Text +"'";                
-            }                  
+                buscar = "WHERE TP.NOME_COMPRADOR = '" + txtComprador.Text + "'";
+            }
             else if (txtProduto.Text != "")
             {
                 buscar = "WHERE PD.ID_PRODUTO = " + txtProduto.Text;
             }
-            else 
+            else
             {
                 buscar = "WHERE TP.ID_FABRICANTE = " + cbxFabricante.SelectedValue;
             }
@@ -66,7 +70,7 @@ namespace SGC_Gerenciamento_de_Compras
                 "INNER JOIN TB_PRODUTO AS PR ON PD.ID_PRODUTO = PR.ID_PRODUTO " +
                 "INNER JOIN TB_FABRICANTE AS FAB ON FAB.ID_FABRICANTE = TP.ID_FABRICANTE " +
                 "INNER JOIN TB_UNIDADE AS UNI ON UNI.ID_UNIDADE = TP.ID_UNIDADE " +
-                "INNER JOIN TB_ETAPA_PEDIDO AS ETA ON ETA.ID_ETAPA_PEDIDO = TP.ID_ETAPA_PEDIDO " + Busca ;
+                "INNER JOIN TB_ETAPA_PEDIDO AS ETA ON ETA.ID_ETAPA_PEDIDO = TP.ID_ETAPA_PEDIDO " + Busca;
 
 
             try
@@ -92,11 +96,11 @@ namespace SGC_Gerenciamento_de_Compras
                 dgvResultadoBusca.Columns[9].HeaderText = "Etapa";
                 dgvResultadoBusca.Columns[10].HeaderText = "Nome Produto";
                 dgvResultadoBusca.Columns[11].HeaderText = "Qtd";
-                dgvResultadoBusca.Columns[12].HeaderText = "Valor";              
+                dgvResultadoBusca.Columns[12].HeaderText = "Valor";
 
                 con.desconectar();
             }
-            catch (SqlException ex) 
+            catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -123,6 +127,42 @@ namespace SGC_Gerenciamento_de_Compras
                 ProdPedidoDAL prodPedidoDAL = new ProdPedidoDAL();
                 lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtProduto.Text));
             }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+
+            if (dgvResultadoBusca.Rows.Count > 0)
+            {
+                try
+                {
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+                    for (int i = 1; i < dgvResultadoBusca.Columns.Count + 1; i++)
+                    {
+                        XcelApp.Cells[1, i] = dgvResultadoBusca.Columns[i - 1].HeaderText;
+                    }
+                    //
+                    for (int i = 0; i < dgvResultadoBusca.Rows.Count ; i++)
+                    {
+                        for (int j = 0; j < dgvResultadoBusca.Columns.Count; j++)
+                        {
+                            XcelApp.Cells[i + 2, j + 1] = dgvResultadoBusca.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    //
+                    XcelApp.Columns.AutoFit();
+                    //
+                    XcelApp.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro : " + ex.Message);
+                    XcelApp.Quit();
+                }
+            }
+
+
         }
     }
 }
