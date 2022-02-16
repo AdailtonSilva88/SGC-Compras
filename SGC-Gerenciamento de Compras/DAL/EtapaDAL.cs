@@ -31,7 +31,6 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             {
                 this.mensagem = "Erro SQL";
             }
-
             return mensagem;
 
         }
@@ -57,8 +56,6 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                 }
 
                 con.desconectar();
-
-
             }
             catch (SqlException ex)
             {
@@ -76,7 +73,6 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             return resultado;
 
         }
-
 
     }
 }

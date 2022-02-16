@@ -62,7 +62,5 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             return nomeProduto;
         }
 
-
-
     }
 }

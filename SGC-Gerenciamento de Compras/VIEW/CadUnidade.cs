@@ -52,8 +52,7 @@ namespace SGC_Gerenciamento_de_Compras
                     
                     limparDados();
                     MessageBox.Show(mensagem);
-                    carregarDados();
-                    
+                    carregarDados();                    
                 }
             }
         }

@@ -45,7 +45,6 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             }
 
             return mensagem;
-
         }
 
         public Int32 ultimoCadastroId()

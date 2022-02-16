@@ -45,6 +45,10 @@ namespace SGC_Gerenciamento_de_Compras
         {
             frmBusca busca = new frmBusca();
             busca.ShowDialog();
-        }       
+        }
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

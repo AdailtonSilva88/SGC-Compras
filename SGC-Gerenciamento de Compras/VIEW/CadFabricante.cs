@@ -54,7 +54,6 @@ namespace SGC_Gerenciamento_de_Compras
                 }
             }
         }
-
         private void frmCadastroFabricante_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet6.TB_FABRICANTE'. Você pode movê-la ou removê-la conforme necessário.

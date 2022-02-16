@@ -89,6 +89,7 @@
             this.btnBaixaNF.TabIndex = 4;
             this.btnBaixaNF.Text = "Baixar NF";
             this.btnBaixaNF.UseVisualStyleBackColor = true;
+            this.btnBaixaNF.Click += new System.EventHandler(this.btnBaixaNF_Click);
             // 
             // dgvBuscaNF
             // 
@@ -132,7 +133,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(409, 471);
+            this.lblTotal.Location = new System.Drawing.Point(299, 466);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(52, 25);
             this.lblTotal.TabIndex = 7;

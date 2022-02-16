@@ -21,7 +21,7 @@ namespace SGC_Gerenciamento_de_Compras
         {
             bool valida;
             AltEtapaPedido frm = new AltEtapaPedido();
-            valida = frm.BuscaPedido(txtBusca.Text);
+            valida = frm.BuscarPedido(txtBusca.Text);
             if (valida)
             {
                 frm.ShowDialog();
@@ -30,8 +30,12 @@ namespace SGC_Gerenciamento_de_Compras
             {
                 String mensagem = "Insira um numero de pedido existente...";
                 MessageBox.Show(mensagem, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            
+            }            
+        }
+
+        private void frmBuscaAlteraPedido_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

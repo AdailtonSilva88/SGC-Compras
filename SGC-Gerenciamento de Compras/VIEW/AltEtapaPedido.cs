@@ -89,7 +89,7 @@ namespace SGC_Gerenciamento_de_Compras
 
         }
 
-        public bool BuscaPedido(String pedido)
+        public bool BuscarPedido(String pedido)
         {
             //carrega os dados dos pedidos
             bool valida = false;
@@ -97,10 +97,9 @@ namespace SGC_Gerenciamento_de_Compras
             SqlDataReader dr;
             cmd.Parameters.Clear();
             cmd.CommandText = "SELECT TP.ID_PEDIDO,TP.ID_FABRICANTE,TP.PEDIDO_FABRICANTE,TP.NOME_VENDEDOR,TP.DATA_PEDIDO,TP.PREVISAO_FATURAMENTO,TP.PRAZO,TP.PARCELA,TP.PEDIDO_COMPRADOR,TP.ID_UNIDADE,TP.NOME_COMPRADOR,TP.OBS,EP.NOME_ETAPA_PEDIDO " +
-                "FROM TB_PEDIDO as TP INNER JOIN TB_ETAPA_PEDIDO AS EP ON TP.ID_ETAPA_PEDIDO = EP.ID_ETAPA_PEDIDO " +
-                "WHERE TP.ID_PEDIDO = @pedido AND TP.ID_ETAPA_PEDIDO <> 3";
+                " FROM TB_PEDIDO as TP INNER JOIN TB_ETAPA_PEDIDO AS EP ON TP.ID_ETAPA_PEDIDO = EP.ID_ETAPA_PEDIDO " +
+                " WHERE TP.ID_PEDIDO = @pedido AND TP.ID_ETAPA_PEDIDO <> 3 AND TP.PED_STATUS  = 'ATIVO'";
             cmd.Parameters.AddWithValue("@pedido", pedido);
-
 
             try
             {
@@ -126,7 +125,6 @@ namespace SGC_Gerenciamento_de_Compras
 
                     con.desconectar();
 
-
                     if (idPedido == "")
                     {
                     }
@@ -151,13 +149,9 @@ namespace SGC_Gerenciamento_de_Compras
                             dgvProdutosPedido.DataMember = dataSet.Tables[0].TableName;
                             dgvProdutosPedido.Columns[0].HeaderText = "Cod Produto";
                             dgvProdutosPedido.Columns[1].HeaderText = "Nome Produto";
-                            dgvProdutosPedido.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
+                            dgvProdutosPedido.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                             dgvProdutosPedido.Columns[2].HeaderText = "Saldo";
                             dgvProdutosPedido.Columns[3].HeaderText = "Valor";
-
-
-
-                            //dgvProdutosPedido.Columns[4].HeaderText = "Total";
 
                             con.desconectar();
                             valida = true;
@@ -211,8 +205,6 @@ namespace SGC_Gerenciamento_de_Compras
                 dgvProdutosPedido.Rows[index].Cells[2].Value = saldo;
             }
             atualizaTotais();
-
-
         }
 
         private void atualizaTotais()
@@ -228,8 +220,6 @@ namespace SGC_Gerenciamento_de_Compras
 
             total = 0;
 
-
-
             foreach (DataGridViewRow linha in dgvProdutosPedido.Rows)
             {
                 valor = Convert.ToDouble(linha.Cells[2].Value) * Convert.ToDouble(linha.Cells[3].Value);
@@ -238,14 +228,12 @@ namespace SGC_Gerenciamento_de_Compras
                 lblTotalPedido.Text = total.ToString("C");
             }
 
-
             if (dgvProdutosPedido.RowCount < 1)
             {
                 lblTotalPedido.Text = "0";
             }
 
             total = 0;
-
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)

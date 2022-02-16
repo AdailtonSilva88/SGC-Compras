@@ -53,7 +53,6 @@ namespace SGC_Gerenciamento_de_Compras
                 }
             }
         }
-
         private void CadProduto_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet7.TB_PRODUTO'. Você pode movê-la ou removê-la conforme necessário.

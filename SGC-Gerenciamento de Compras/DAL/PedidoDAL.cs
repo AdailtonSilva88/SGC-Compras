@@ -21,7 +21,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
 
             cmd.CommandText = "INSERT INTO TB_PEDIDO VALUES(@idFabricante,@idEtapaPedido,@pedidoFabricante," +
             "@nomeVendedor,@dataPedido,@previsaoFaturamento,@prazo,@parcela,@pedidoComprador,@idUnidade," +
-            "@nf,@nomeComprador,@obs) SELECT SCOPE_IDENTITY()";
+            "@nf,@status,@nomeComprador,@obs) SELECT SCOPE_IDENTITY()";
                 
 
             cmd.Parameters.AddWithValue("@idFabricante",pedido.IdFabricante );
@@ -35,6 +35,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             cmd.Parameters.AddWithValue("@pedidoComprador",pedido.PedidoComprador );
             cmd.Parameters.AddWithValue("@idUnidade", pedido.IdUnidade);
             cmd.Parameters.AddWithValue("@nf", 0);
+            cmd.Parameters.AddWithValue("@status", "ATIVO");
             cmd.Parameters.AddWithValue("@nomeComprador", pedido.NomeComprador );
             cmd.Parameters.AddWithValue("@obs", pedido.Obs );
            
@@ -74,7 +75,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
 
             cmd.CommandText = "INSERT INTO TB_PEDIDO VALUES(@idFabricante,@idEtapaPedido,@pedidoFabricante," +
             "@nomeVendedor,@dataPedido,@previsaoFaturamento,@prazo,@parcela,@pedidoComprador,@idUnidade," +
-            "@nf,@nomeComprador,@obs) SELECT SCOPE_IDENTITY()";
+            "@nf,@status,@nomeComprador,@obs) SELECT SCOPE_IDENTITY()";
 
 
             cmd.Parameters.AddWithValue("@idFabricante", pedido.IdFabricante);
@@ -88,6 +89,7 @@ namespace SGC_Gerenciamento_de_Compras.DAL
             cmd.Parameters.AddWithValue("@pedidoComprador", pedido.PedidoComprador);
             cmd.Parameters.AddWithValue("@idUnidade", pedido.IdUnidade);
             cmd.Parameters.AddWithValue("@nf", pedido.Nf);
+            cmd.Parameters.AddWithValue("@status", "ATIVO");
             cmd.Parameters.AddWithValue("@nomeComprador", pedido.NomeComprador);
             cmd.Parameters.AddWithValue("@obs", pedido.Obs);
 
@@ -188,14 +190,9 @@ namespace SGC_Gerenciamento_de_Compras.DAL
                
                 con.desconectar();
 
-                return verifica;          
+                return verifica;      
 
-        
-        }
-
-        
-
-
+        }     
 
     }
 }

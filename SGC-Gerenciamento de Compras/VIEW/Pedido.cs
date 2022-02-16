@@ -226,8 +226,6 @@ namespace SGC_Gerenciamento_de_Compras
 
         }
 
-
-
         private void dgvProdutosPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             txtCodProduto.Text = dgvProdutosPedido.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -238,8 +236,6 @@ namespace SGC_Gerenciamento_de_Compras
             total = total - Convert.ToDouble(dgvProdutosPedido.Rows[e.RowIndex].Cells[4].Value);
 
             dgvProdutosPedido.Rows.RemoveAt(dgvProdutosPedido.CurrentRow.Index);
-
-
         }
 
         private void btnExcluirProduto_Click(object sender, EventArgs e)
@@ -247,8 +243,6 @@ namespace SGC_Gerenciamento_de_Compras
             total = total - Convert.ToDouble(dgvProdutosPedido.CurrentRow.Cells[4].Value);
             dgvProdutosPedido.Rows.RemoveAt(dgvProdutosPedido.CurrentRow.Index);
         }
-
-
 
         private void txtParcela_TextChanged(object sender, EventArgs e)
         {
@@ -294,7 +288,6 @@ namespace SGC_Gerenciamento_de_Compras
                 {
                     lblNomeProduto.Text = prodPedidoDAL.nomeProduto(Convert.ToInt32(txtCodProduto.Text));
                 }
-
             }
         }
 
@@ -302,7 +295,6 @@ namespace SGC_Gerenciamento_de_Compras
         {
 
         }
-
 
     }
 

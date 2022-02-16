@@ -91,13 +91,13 @@
             this.tBETAPAPEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sGC_DBDataSet11 = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet11();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tB_ETAPA_PEDIDOTableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet11TableAdapters.TB_ETAPA_PEDIDOTableAdapter();
             this.tB_FABRICANTETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet12TableAdapters.TB_FABRICANTETableAdapter();
             this.tB_UNIDADETableAdapter = new SGC_Gerenciamento_de_Compras.SGC_DBDataSet13TableAdapters.TB_UNIDADETableAdapter();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBUNIDADEBindingSource)).BeginInit();
@@ -227,7 +227,7 @@
             // 
             this.lblTotalPedido.AutoSize = true;
             this.lblTotalPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPedido.Location = new System.Drawing.Point(546, 649);
+            this.lblTotalPedido.Location = new System.Drawing.Point(520, 644);
             this.lblTotalPedido.Name = "lblTotalPedido";
             this.lblTotalPedido.Size = new System.Drawing.Size(20, 24);
             this.lblTotalPedido.TabIndex = 31;
@@ -567,7 +567,7 @@
             // 
             this.lblTotalNovoPedido.AutoSize = true;
             this.lblTotalNovoPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalNovoPedido.Location = new System.Drawing.Point(561, 652);
+            this.lblTotalNovoPedido.Location = new System.Drawing.Point(546, 649);
             this.lblTotalNovoPedido.Name = "lblTotalNovoPedido";
             this.lblTotalNovoPedido.Size = new System.Drawing.Size(20, 24);
             this.lblTotalNovoPedido.TabIndex = 35;
@@ -705,6 +705,15 @@
             this.groupBox4.TabIndex = 41;
             this.groupBox4.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(431, 328);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(199, 13);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "# Duplo clique para selecionar o produto";
+            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -750,15 +759,6 @@
             // tB_UNIDADETableAdapter
             // 
             this.tB_UNIDADETableAdapter.ClearBeforeFill = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(431, 328);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 13);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "# Duplo clique para selecionar o produto";
             // 
             // AltEtapaPedido
             // 

@@ -53,7 +53,6 @@ namespace SGC_Gerenciamento_de_Compras
                 }
             }
         }
-
         private void CadEtapas_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'sGC_DBDataSet5.TB_ETAPA_PEDIDO'. Você pode movê-la ou removê-la conforme necessário.

@@ -82,6 +82,7 @@
             this.Name = "frmBuscaAlteraPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busca para Alterar Pedido";
+            this.Load += new System.EventHandler(this.frmBuscaAlteraPedido_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

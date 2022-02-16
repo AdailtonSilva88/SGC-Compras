@@ -31,13 +31,13 @@ namespace SGC_Gerenciamento_de_Compras
 
         private void btnBuscaNF_Click(object sender, EventArgs e)
         {
-            if (!BuscaNfExiste()) 
+            if (!BuscaNfExiste())
             {
                 MessageBox.Show("NF não encontrada !!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        public void atualizaTotais() 
+        public void atualizaTotais()
         {
             double valor = 0;
             double total = 0;
@@ -50,7 +50,39 @@ namespace SGC_Gerenciamento_de_Compras
                 lblTotal.Text = total.ToString("C");
             }
         }
+        public bool baixarNF()
+        {
+            bool sucesso = false;
 
+            cmd.Parameters.Clear();
+            cmd.CommandText = "UPDATE TB_PEDIDO SET PED_STATUS = @status WHERE NF = @nf AND ID_FABRICANTE = @idFabricante  ";
+            cmd.Parameters.AddWithValue("@status", "FINALIZADO");
+            cmd.Parameters.AddWithValue("@nf", txtBuscaNF.Text);
+            cmd.Parameters.AddWithValue("@idFabricante", cbxFabricante.SelectedValue);
+            StringBuilder errorMessages = new StringBuilder();
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+
+                sucesso = true;
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                Console.WriteLine(errorMessages.ToString());
+            }
+            return sucesso;
+        }
 
         public bool BuscaNfExiste()
         {
@@ -60,8 +92,8 @@ namespace SGC_Gerenciamento_de_Compras
             cmd.Parameters.Clear();
             cmd.CommandText = "SELECT COD_PRODUTO,DESCRICAO_PROD,SALDO_PEDIDO,VALOR FROM TB_PRODUTOS_PEDIDO AS PD " +
                 "INNER JOIN TB_PEDIDO AS TP ON TP.ID_PEDIDO = PD.ID_PEDIDO INNER JOIN TB_PRODUTO AS PR ON PD.ID_PRODUTO = PR.ID_PRODUTO " +
-                "WHERE NF = @nf AND ID_FABRICANTE = @idFabricante";
-               
+                "WHERE NF = @nf AND ID_FABRICANTE = @idFabricante AND TP.PED_STATUS  = 'ATIVO'";
+
             cmd.Parameters.AddWithValue("@nf", txtBuscaNF.Text);
             cmd.Parameters.AddWithValue("@idFabricante", cbxFabricante.SelectedValue);
 
@@ -83,8 +115,6 @@ namespace SGC_Gerenciamento_de_Compras
 
                 atualizaTotais();
 
-                //dgvProdutosPedido.Columns[4].HeaderText = "Total";
-
                 con.desconectar();
                 verifica = true;
             }
@@ -92,8 +122,15 @@ namespace SGC_Gerenciamento_de_Compras
             {
                 MessageBox.Show(ex.Message);
             }
-
             return verifica;
+        }
+
+        private void btnBaixaNF_Click(object sender, EventArgs e)
+        {
+            if (baixarNF())
+            {
+                MessageBox.Show("NF Baixada !!!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
